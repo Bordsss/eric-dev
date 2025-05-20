@@ -129,53 +129,54 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load More Projects Functionality
     const projects = [
         {
-            title: "E-commerce Platform",
-            description: "Full-stack e-commerce solution with React, Node.js, and MongoDB",
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-            technologies: ["React", "Node.js", "MongoDB"],
-            liveLink: "#",
-            codeLink: "#"
+            title: "Kiddie Recom",
+            description: "A locally hosted web app that let the children read story on it and at the same time can interact with the story it self. they can click the word then the website plays the pre recorded voice on how to pronouns it and view its meaning at the same time.",
+            image: "./images/kiddie.png",
+            technologies: ["HTML", "JavaScript", "Bootstrap"],
+            // liveLink: "#",
+            // codeLink: "#"
         },
         {
-            title: "Business Analytics Dashboard",
-            description: "Interactive data visualization dashboard for business metrics",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80",
-            technologies: ["JavaScript", "D3.js", "Python"],
-            liveLink: "#",
-            codeLink: "#"
+            title: "USeP Vehicle Scheduling System",
+            description: "An web base Vehicle scheduling and dispatch system for University of Southeastern Philippines. where the users can request a vehicle to use  during an outside campus event. and schedule ahead of so that the other users can view the schedule of the vehicle using the calendar display.",
+            image: "./images/uvds.png",         
+            technologies: ["JavaScript", "HTML", "PHP"],
+            // liveLink: "#",
+            // codeLink: "#"
         },
         {
-            title: "Task Management System",
-            description: "Collaborative task management application with real-time updates",
-            image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-            technologies: ["Vue.js", "Firebase", "Tailwind CSS"],
-            liveLink: "#",
-            codeLink: "#"
+            title: "M-Access",
+            description: "CIs an IOT controller Application. this app is develop to prevent motorcycle from being stolen. it controls the ignition and power of the motorcycle ON/OFF using the finger print sensor of the phone through the app itself. With the help of the help of a micro controller that is installed on the motorcycle.",
+            image: "./images/m-access.png",
+            technologies: ["JAVA", "Firebase", "ARDUINO"],
+            // liveLink: "#",
+            // codeLink: "#"
+        },
+         {
+            title: "Drivehub",
+            description: "Rent a car Booking system",
+            image: "./images/DriveHub.png",
+             technologies: ["JavaScript", "HTML", "PHP", "MongoDB"],
+            // liveLink: "#",
+            // codeLink: "#"
         },
         {
-            title: "Portfolio Website",
-            description: "Responsive portfolio website built with HTML, CSS and JavaScript",
-            image: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+            title: "AVRS",
+            description: "Audio Visual Reservation Scheduling ",
+            image: "./images/avrs.jpg",
             technologies: ["HTML5", "CSS3", "JavaScript"],
-            liveLink: "#",
-            codeLink: "#"
+            // liveLink: "#",
+            // codeLink: "#"
         },
-        {
-            title: "Weather Application",
-            description: "Real-time weather forecasting app with location detection",
-            image: "https://images.unsplash.com/photo-1601134467661-3d775b999c8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1375&q=80",
-            technologies: ["React", "API Integration", "Geolocation"],
-            liveLink: "#",
-            codeLink: "#"
-        },
-        {
-            title: "Recipe Finder",
-            description: "Search and save your favorite recipes with nutritional information",
-            image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
-            technologies: ["JavaScript", "Edamam API", "Local Storage"],
-            liveLink: "#",
-            codeLink: "#"
-        }
+       
+        // {
+        //     title: "Recipe Finder",
+        //     description: "Search and save your favorite recipes with nutritional information",
+        //     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+        //     technologies: ["JavaScript", "Edamam API", "Local Storage"],
+        //     liveLink: "#",
+        //     codeLink: "#"
+        // }
     ];
 
     let visibleProjects = 3; // Initial number of projects to show
