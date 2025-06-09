@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -187,4 +188,195 @@
 
     <script src="script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Portfolio Content | Eric John</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">EJ</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Back to Portfolio</a></li>
+                </ul>
+                <div class="theme-toggle">
+                    <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+                    <label for="darkModeToggle" class="toggle-label">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                        <span class="toggle-ball"></span>
+                    </label>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="management">
+        <div class="container">
+            <h2 class="section-title">Manage <span>Portfolio Content</span></h2>
+            <div class="management-container">
+                <!-- Hero Section Form -->
+                <div class="management-section hero-section">
+                    <h3>Hero Section</h3>
+                    <form id="heroForm" class="management-form">
+                        <div class="form-group">
+                            <label for="heroName">Name</label>
+                            <input type="text" id="heroName" placeholder="Alex Carter" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="heroSubtitle">Subtitle</label>
+                            <input type="text" id="heroSubtitle" placeholder="IT Specialist & Web Developer" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="heroDescription">Description</label>
+                            <textarea id="heroDescription" placeholder="Building digital solutions that solve real-world problems" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Save Hero</button>
+                    </form>
+                </div>
+
+                <!-- About Section Form -->
+                <div class="management-section about-section">
+                    <h3>About Section</h3>
+                    <form id="aboutForm" class="management-form">
+                        <div class="form-group">
+                            <label for="aboutBio1">Bio Paragraph 1</label>
+                            <textarea id="aboutBio1" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="aboutBio2">Bio Paragraph 2</label>
+                            <textarea id="aboutBio2" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="aboutBio3">Bio Paragraph 3</label>
+                            <textarea id="aboutBio3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="resumeLink">Resume Link</label>
+                            <input type="url" id="resumeLink" placeholder="https://example.com/resume.pdf">
+                        </div>
+                        <button type="submit" class="btn">Save About</button>
+                    </form>
+                </div>
+
+                <!-- Skills Section Form -->
+                <div class="management-section skills-section">
+                    <h3>Skills Section</h3>
+                    <form id="skillsForm" class="management-form">
+                        <div class="skill-category-input">
+                            <h4>Frontend Skills</h4>
+                            <div class="skill-list" id="frontendSkills"></div>
+                            <div class="form-group">
+                                <input type="text" id="newFrontendSkill" placeholder="Add new skill (e.g., HTML5)">
+                                <button type="button" class="btn btn-outline" onclick="addSkill('frontend')">Add Skill</button>
+                            </div>
+                        </div>
+                        <div class="skill-category-input">
+                            <h4>Backend Skills</h4>
+                            <div class="skill-list" id="backendSkills"></div>
+                            <div class="form-group">
+                                <input type="text" id="newBackendSkill" placeholder="Add new skill (e.g., Node.js)">
+                                <button type="button" class="btn btn-outline" onclick="addSkill('backend')">Add Skill</button>
+                            </div>
+                        </div>
+                        <div class="skill-category-input">
+                            <h4>Other Skills</h4>
+                            <div class="skill-list" id="otherSkills"></div>
+                            <div class="form-group">
+                                <input type="text" id="newOtherSkill" placeholder="Add new skill (e.g., Git)">
+                                <button type="button" class="btn btn-outline" onclick="addSkill('other')">Add Skill</button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Save Skills</button>
+                    </form>
+                </div>
+
+                <!-- Projects Section Form -->
+                <div class="management-section projects-section">
+                    <h3>Projects Section</h3>
+                    <form id="projectForm" class="management-form">
+                        <div class="form-group">
+                            <label for="projectTitle">Project Title</label>
+                            <input type="text" id="projectTitle" placeholder="Project Title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDescription">Description</label>
+                            <textarea id="projectDescription" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectImage">Image URL</label>
+                            <input type="url" id="projectImage" placeholder="https://example.com/image.jpg">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectTech">Technologies (comma-separated)</label>
+                            <input type="text" id="projectTech" placeholder="React, Node.js, MongoDB">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectGithub">GitHub Link</label>
+                            <input type="url" id="projectGithub" placeholder="https://github.com/username/repo">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectLive">Live Demo Link</label>
+                            <input type="url" id="projectLive" placeholder="https://example.com">
+                        </div>
+                        <button type="submit" class="btn">Add Project</button>
+                    </form>
+                    <div class="project-list" id="projectList"></div>
+                </div>
+
+                <!-- Contact Section Form -->
+                <div class="management-section contact-section">
+                    <h3>Contact Section</h3>
+                    <form id="contactInfoForm" class="management-form">
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" placeholder="alex.carter@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone</label>
+                            <input type="tel" id="contactPhone" placeholder="(123) 456-7890">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactLocation">Location</label>
+                            <input type="text" id="contactLocation" placeholder="San Francisco, CA">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactGithub">GitHub Link</label>
+                            <input type="url" id="contactGithub" placeholder="https://github.com/username">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactLinkedin">LinkedIn Link</label>
+                            <input type="url" id="contactLinkedin" placeholder="https://linkedin.com/in/username">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactTwitter">Twitter Link</label>
+                            <input type="url" id="contactTwitter" placeholder="https://twitter.com/username">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactCodepen">CodePen Link</label>
+                            <input type="url" id="contactCodepen" placeholder="https://codepen.io/username">
+                        </div>
+                        <button type="submit" class="btn">Save Contact Info</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Alex Carter. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+>>>>>>> bae7d29bfd2bc22381f8221381e34fff454a04d5
 </html>
