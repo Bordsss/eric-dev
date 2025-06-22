@@ -195,16 +195,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="tech-used">
                         ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
                     </div>
-                    <div class="project-links">
-                        <a href="${project.liveLink}" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="${project.codeLink}" target="_blank"><i class="fab fa-github"></i> Code</a>
-                    </div>
+                    
                 </div>
             `;
             
             projectsGrid.appendChild(projectCard);
         });
-        
+        // <div class="project-links">
+        //                 <a href="${project.liveLink}" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        //                 <a href="${project.codeLink}" target="_blank"><i class="fab fa-github"></i> Code</a>
+        //             </div>
         // Hide "Load More" button if all projects are visible
         if (limit >= projects.length) {
             loadMoreBtn.style.display = 'none';
