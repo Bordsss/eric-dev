@@ -128,15 +128,15 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Kiddie Recom",
             description: "A locally hosted web app that let the children read story on it and at the same time can interact with the story it self. they can click the word then the website plays the pre recorded voice on how to pronouns it and view its meaning at the same time.",
             image: "./images/kiddie.png",
-            technologies: ["HTML", "JavaScript", "Bootstrap"],
+            technologies: ["HTML", "JavaScript", "Bootstrap", "Css"],
             // liveLink: "#",
             // codeLink: "#"
         },
         {
             title: "USeP Vehicle Scheduling System",
             description: "An web base Vehicle scheduling and dispatch system for University of Southeastern Philippines. where the users can request a vehicle to use  during an outside campus event. and schedule ahead of so that the other users can view the schedule of the vehicle using the calendar display.",
-            image: "./images/uvds.png",         
-            technologies: ["JavaScript", "HTML", "PHP"],
+            image: "./images/uvds.png",
+            technologies: ["JavaScript", "HTML", "PHP", "CSS"],
             // liveLink: "#",
             // codeLink: "#"
         },
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Drivehub",
             description: "Rent a car Booking system",
             image: "./images/DriveHub.png",
-             technologies: ["JavaScript", "HTML", "PHP", "MongoDB"],
+            technologies: ["JavaScript", "HTML", "PHP", "MongoDB", "CSS"],
             // liveLink: "#",
             // codeLink: "#"
         },
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "AVRS",
             description: "Audio Visual Reservation Scheduling ",
             image: "./images/avrs.jpg",
-            technologies: ["HTML5", "CSS3", "JavaScript"],
+            technologies: ["HTML5", "CSS3", "JavaScript", "CSS"],
             // liveLink: "#",
             // codeLink: "#"
         },
