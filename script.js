@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // }
     ];
 
-    let visibleProjects = 3; // Initial number of projects to show
+    let visibleProjects = 5; // Initial number of projects to show
     const projectsGrid = document.querySelector('.projects-grid');
     const loadMoreBtn = document.getElementById('loadMore');
 
