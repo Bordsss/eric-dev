@@ -61,23 +61,86 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Form submission
-    const contactForm = document.querySelector('.contact-form');
+    const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
+        // Update form action to use FormSubmit with your email
+        contactForm.action = 'https://formsubmit.co/ericjohnbatino0821@gmail.com';
+        
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Basic form validation
+            const nameInput = this.querySelector('input[type="text"]');
+            const emailInput = this.querySelector('input[type="email"]');
+            const messageInput = this.querySelector('textarea');
             
-            // Get form values
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
+            let isValid = true;
             
-            // Here you would typically send the data to a server
-            console.log('Form submitted:', data);
+            // Reset previous error states
+            this.querySelectorAll('.error').forEach(el => el.remove());
+            this.querySelectorAll('.form-group').forEach(group => group.classList.remove('error'));
             
-            // Show success message
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
+            // Validate name
+            if (!nameInput.value.trim()) {
+                showError(nameInput, 'Name is required');
+                isValid = false;
+            }
+            
+            // Validate email
+            if (!emailInput.value.trim()) {
+                showError(emailInput, 'Email is required');
+                isValid = false;
+            } else if (!isValidEmail(emailInput.value)) {
+                showError(emailInput, 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Validate message
+            if (!messageInput.value.trim()) {
+                showError(messageInput, 'Message is required');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+                
+                // Show general error message
+                if (!this.querySelector('.form-error')) {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'form-error';
+                    errorDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fix the errors above';
+                    this.insertBefore(errorDiv, this.querySelector('.form-group:first-child'));
+                }
+            } else {
+                // If valid, show loading state
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+                
+                // Revert after 5 seconds even if the form submission takes longer
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 5000);
+            }
         });
+    }
+    
+    // Helper function to show validation errors
+    function showError(input, message) {
+        const formGroup = input.parentElement;
+        formGroup.classList.add('error');
+        
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+        formGroup.appendChild(errorDiv);
+    }
+    
+    // Helper function to validate email format
+    function isValidEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
     }
     
     // Smooth scrolling for anchor links
