@@ -65,7 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (contactForm) {
         // Update form action to use FormSubmit with your email
-        contactForm.action = 'https://formsubmit.co/el/hacole';
+        // contactForm.action = 'https://formsubmit.co/el/hacole';
+         contactForm.action = 'https://formsubmit.co/ericjohnbatino0821@gmail.com';
+        
         
         contactForm.addEventListener('submit', function(e) {
             // Basic form validation
