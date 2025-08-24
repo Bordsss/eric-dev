@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             title: "M-Access",
-            description: "CIs an IOT controller Application. this app is develop to prevent motorcycle from being stolen. it controls the ignition and power of the motorcycle ON/OFF using the finger print sensor of the phone through the app itself. With the help of the help of a micro controller that is installed on the motorcycle.",
+            description: " an IOT controller Application. this app is develop to prevent motorcycle from being stolen. it controls the ignition and power of the motorcycle ON/OFF using the finger print sensor of the phone through the app itself. With the help of the help of a micro controller that is installed on the motorcycle.",
             image: "./images/m-access.png",
             technologies: ["JAVA", "Firebase", "ARDUINO"],
             // liveLink: "#",
