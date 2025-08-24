@@ -240,6 +240,19 @@
                         <textarea name="message" placeholder="Message" required></textarea>
                     </div>
                     <button type="submit" class="btn">Send Message</button>
+
+
+
+
+                      <!-- Spam protection -->
+                    <input type="text" name="_honey" style="display:none">          <!-- Honeypot -->
+                    <input type="hidden" name="_captcha" value="true">              <!-- Enable CAPTCHA (or "false" to disable) -->
+
+                    <!-- Quality-of-life -->
+                    <input type="hidden" name="_template" value="table">            <!-- Nicer email layout -->
+                    <input type="hidden" name="_subject" value="New message from your portfolio site">
+                    <input type="hidden" name="_next" value="https://eric-dev.vercel.app/thank-you.html"> <!-- Redirect after submit -->
+                    <input type="hidden" name="_replyto" value="">     
                 </form>
             </div>
         </div>
