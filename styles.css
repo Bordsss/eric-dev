@@ -1196,20 +1196,3 @@ body.dark-mode .skill-category h3 {
 }
 
 
-/* Enhanced Project Card for Shopify */
-.project-card.shopify-card .tech-used span.shopify {
-    background-color: #95bf47;
-    color: white;
-}
-
-.project-card.shopify-card .project-links a.live-link {
-    background-color: #95bf47;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-}
-
-.project-card.shopify-card .project-links a.live-link:hover {
-    background-color: #7da33a;
-}
