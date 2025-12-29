@@ -1195,4 +1195,271 @@ body.dark-mode .skill-category h3 {
     color: #555;
 }
 
+/* Shopify Section Styles */
+.shopify {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
 
+.shopify .section-title {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.shopify .section-title span {
+    color: #ffd700;
+}
+
+.shopify .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+.shopify-showcase {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 60px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.shopify-featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.featured-content h3 {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.featured-content h4 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.featured-content p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.shopify-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.shopify-features li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.shopify-features i {
+    color: #ffd700;
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.featured-image {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.featured-image:hover {
+    transform: translateY(-10px);
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.featured-image:hover img {
+    transform: scale(1.05);
+}
+
+.shopify-services h3,
+.shopify-skills h3,
+.shopify-cta h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.service-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.service-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.skill-tag:hover {
+    background: #ffd700;
+    color: #333;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.shopify-cta {
+    text-align: center;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.shopify-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn-shopify {
+    background: #ffd700;
+    color: #333;
+    font-weight: 700;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-shopify:hover {
+    background: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+}
+
+.btn-shopify i {
+    margin-right: 10px;
+}
+
+/* Update contact form service dropdown */
+#service {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: white;
+    color: #333;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+}
+
+#service:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Responsive Design for Shopify Section */
+@media (max-width: 992px) {
+    .shopify-featured {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .shopify-features li {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .shopify {
+        padding: 60px 0;
+    }
+    
+    .shopify-showcase {
+        padding: 25px;
+    }
+    
+    .featured-content h4 {
+        font-size: 2rem;
+    }
+    
+    .skills-tags {
+        gap: 10px;
+    }
+    
+    .skill-tag {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .shopify-cta {
+        padding: 30px 20px;
+    }
+}
