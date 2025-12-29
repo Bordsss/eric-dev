@@ -1195,37 +1195,37 @@ body.dark-mode .skill-category h3 {
     color: #555;
 }
 
-/* Shopify Section Styles */
+/* Shopify Section Styles - Updated to match theme */
 .shopify {
     padding: 100px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 100%); /* Lighter blue gradient */
+    color: var(--dark-color); /* Use your dark color variable */
 }
 
 .shopify .section-title {
-    color: white;
+    color: var(--dark-color); /* Use your dark color variable */
     text-align: center;
     margin-bottom: 20px;
 }
 
 .shopify .section-title span {
-    color: #ffd700;
+    color: var(--primary-color); /* Use your primary blue color */
 }
 
 .shopify .section-subtitle {
     text-align: center;
     font-size: 1.2rem;
     margin-bottom: 50px;
-    opacity: 0.9;
+    color: var(--gray-color); /* Use your gray color variable */
 }
 
 .shopify-showcase {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    background: white;
+    border-radius: 10px;
     padding: 40px;
     margin-bottom: 60px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
 }
 
 .shopify-featured {
@@ -1236,7 +1236,7 @@ body.dark-mode .skill-category h3 {
 }
 
 .featured-content h3 {
-    color: #ffd700;
+    color: var(--primary-color); /* Use your primary blue color */
     font-size: 1.2rem;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -1247,12 +1247,14 @@ body.dark-mode .skill-category h3 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     line-height: 1.2;
+    color: var(--dark-color); /* Use your dark color variable */
 }
 
 .featured-content p {
     font-size: 1.1rem;
     margin-bottom: 25px;
     line-height: 1.6;
+    color: var(--gray-color); /* Use your gray color variable */
 }
 
 .shopify-features {
@@ -1266,18 +1268,19 @@ body.dark-mode .skill-category h3 {
     display: flex;
     align-items: center;
     font-size: 1.1rem;
+    color: var(--dark-color); /* Use your dark color variable */
 }
 
 .shopify-features i {
-    color: #ffd700;
+    color: var(--success-color); /* Use your success green color */
     margin-right: 15px;
     font-size: 1.2rem;
 }
 
 .featured-image {
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     transition: transform 0.3s ease;
 }
 
@@ -1302,7 +1305,7 @@ body.dark-mode .skill-category h3 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 30px;
-    color: white;
+    color: var(--dark-color); /* Use your dark color variable */
 }
 
 .services-grid {
@@ -1313,36 +1316,36 @@ body.dark-mode .skill-category h3 {
 }
 
 .service-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: white;
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s ease, background 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .service-icon {
     font-size: 3rem;
-    color: #ffd700;
+    color: var(--primary-color); /* Use your primary blue color */
     margin-bottom: 20px;
 }
 
 .service-card h4 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: white;
+    color: var(--dark-color); /* Use your dark color variable */
 }
 
 .service-card p {
     font-size: 1rem;
     line-height: 1.6;
-    opacity: 0.9;
+    color: var(--gray-color); /* Use your gray color variable */
 }
 
 .skills-tags {
@@ -1354,40 +1357,41 @@ body.dark-mode .skill-category h3 {
 }
 
 .skill-tag {
-    background: rgba(255, 255, 255, 0.15);
+    background-color: #e0e7ff; /* Light blue background */
+    color: var(--primary-color); /* Primary blue text */
     padding: 12px 25px;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.3s ease;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid transparent;
 }
 
 .skill-tag:hover {
-    background: #ffd700;
-    color: #333;
+    background: var(--primary-color); /* Primary blue background */
+    color: white; /* White text */
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .shopify-cta {
     text-align: center;
     padding: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
 }
 
 .shopify-cta p {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    opacity: 0.9;
+    color: var(--gray-color); /* Use your gray color variable */
 }
 
 .btn-shopify {
-    background: #ffd700;
-    color: #333;
-    font-weight: 700;
+    background: var(--primary-color); /* Use your primary blue color */
+    color: white;
+    font-weight: 600;
     padding: 15px 40px;
     font-size: 1.2rem;
     border: none;
@@ -1395,13 +1399,63 @@ body.dark-mode .skill-category h3 {
 }
 
 .btn-shopify:hover {
-    background: #fff;
+    background: var(--secondary-color); /* Use your secondary blue color */
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .btn-shopify i {
     margin-right: 10px;
+}
+
+/* Dark mode styles for Shopify section */
+body.dark-mode .shopify {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%); /* Dark gradient */
+}
+
+body.dark-mode .shopify .section-title,
+body.dark-mode .shopify .section-title span,
+body.dark-mode .featured-content h4,
+body.dark-mode .shopify-services h3,
+body.dark-mode .shopify-skills h3,
+body.dark-mode .shopify-cta h3,
+body.dark-mode .service-card h4,
+body.dark-mode .shopify-features li {
+    color: var(--dark-color); /* Use your dark color variable for dark mode */
+}
+
+body.dark-mode .shopify .section-subtitle,
+body.dark-mode .featured-content p,
+body.dark-mode .service-card p,
+body.dark-mode .shopify-cta p {
+    color: var(--gray-color); /* Use your gray color variable for dark mode */
+}
+
+body.dark-mode .shopify-showcase,
+body.dark-mode .service-card,
+body.dark-mode .shopify-cta {
+    background-color: #1f2937;
+    border-color: #374151;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .shopify-features i {
+    color: var(--success-color); /* Keep success color in dark mode */
+}
+
+body.dark-mode .skill-tag {
+    background-color: #374151; /* Darker background for tags */
+    color: var(--primary-color); /* Primary blue text */
+    border-color: #4b5563;
+}
+
+body.dark-mode .skill-tag:hover {
+    background-color: var(--primary-color); /* Primary blue on hover */
+    color: white;
+}
+
+body.dark-mode .service-icon {
+    color: var(--primary-color); /* Primary blue for icons */
 }
 
 /* Update contact form service dropdown */
@@ -1420,9 +1474,16 @@ body.dark-mode .skill-category h3 {
     background-size: 16px;
 }
 
+body.dark-mode #service {
+    background-color: #374151;
+    color: var(--dark-color);
+    border-color: #6b7280;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23e5e7eb' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+}
+
 #service:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: var(--primary-color);
 }
 
 /* Responsive Design for Shopify Section */
