@@ -1524,3 +1524,225 @@ body.dark-mode #service {
         padding: 30px 20px;
     }
 }
+/* Video Projects Section Styles */
+.videos {
+    padding: 100px 0;
+    background-color: #f8fafc;
+}
+
+.videos .section-title {
+    color: var(--dark-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.videos .section-title span {
+    color: var(--primary-color);
+}
+
+.videos .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: var(--gray-color);
+}
+
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.video-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.video-container video,
+.video-container .youtube-embed {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.youtube-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.video-info p {
+    color: var(--gray-color);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.video-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.video-tech span {
+    background-color: #e0e7ff;
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.video-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.stat-item {
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.stat-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.stat-item h4 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.stat-item p {
+    color: var(--gray-color);
+    font-size: 1rem;
+}
+
+.video-cta {
+    text-align: center;
+    padding: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.video-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.video-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--gray-color);
+}
+
+.video-cta .btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
+
+.video-cta .btn i {
+    margin-right: 10px;
+}
+
+/* Dark mode styles */
+body.dark-mode .videos {
+    background-color: #1f2937;
+}
+
+body.dark-mode .video-card,
+body.dark-mode .stat-item,
+body.dark-mode .video-cta {
+    background-color: #1f2937;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .video-info h3,
+body.dark-mode .video-cta h3,
+body.dark-mode .stat-item h4 {
+    color: var(--dark-color);
+}
+
+body.dark-mode .video-info p,
+body.dark-mode .video-cta p,
+body.dark-mode .stat-item p {
+    color: var(--gray-color);
+}
+
+body.dark-mode .video-tech span {
+    background-color: #374151;
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .videos {
+        padding: 60px 0;
+    }
+    
+    .video-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .video-container {
+        height: 200px;
+    }
+    
+    .video-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .video-cta {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item {
+        padding: 20px 15px;
+    }
+    
+    .stat-item h4 {
+        font-size: 2rem;
+    }
+}
