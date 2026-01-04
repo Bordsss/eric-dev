@@ -1746,3 +1746,228 @@ body.dark-mode .video-tech span {
         font-size: 2rem;
     }
 }
+/* Video Demo Section Styles */
+.video-demo {
+    padding: 100px 0;
+    background-color: white;
+}
+
+.video-demo .section-title {
+    color: var(--dark-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-demo .section-title span {
+    color: var(--primary-color);
+}
+
+.video-demo .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: var(--gray-color);
+}
+
+.demo-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: start;
+}
+
+.demo-video {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* YouTube Embed Styles */
+.youtube-embed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.youtube-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.demo-info {
+    padding: 20px;
+}
+
+.demo-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.demo-description {
+    margin-bottom: 30px;
+}
+
+.demo-description p:first-child {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.demo-description ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.demo-description li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: var(--gray-color);
+}
+
+.demo-description li i {
+    color: var(--success-color);
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.duration {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.duration i {
+    margin-right: 10px;
+}
+
+.video-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.youtube-btn {
+    background-color: #FF0000;
+    color: white;
+    border: none;
+}
+
+.youtube-btn:hover {
+    background-color: #CC0000;
+}
+
+.demo-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px 20px;
+    background: #f8fafc;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.feature h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.feature p {
+    color: var(--gray-color);
+    line-height: 1.6;
+}
+
+/* Dark mode styles */
+body.dark-mode .video-demo {
+    background-color: #1f2937;
+}
+
+body.dark-mode .demo-video,
+body.dark-mode .feature {
+    background-color: #374151;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .demo-info h3,
+body.dark-mode .feature h4 {
+    color: var(--dark-color);
+}
+
+body.dark-mode .demo-description p,
+body.dark-mode .demo-description li,
+body.dark-mode .feature p {
+    color: var(--gray-color);
+}
+
+body.dark-mode .duration {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .demo-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .demo-video {
+        order: 1;
+    }
+    
+    .demo-info {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-demo {
+        padding: 60px 0;
+    }
+    
+    .video-actions {
+        flex-direction: column;
+    }
+    
+    .video-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .demo-features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .demo-features {
+        grid-template-columns: 1fr;
+    }
+}
