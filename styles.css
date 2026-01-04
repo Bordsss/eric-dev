@@ -1408,13 +1408,14 @@ body.dark-mode .skill-category h3 {
 }
 
 /* Dark mode styles for Shopify section */
-body.dark-mode .shopify {
+body.dark-mode .shopify,
+body.dark-mode .skills {
     background: linear-gradient(135deg, #1f2937 0%, #111827 100%); /* Dark gradient */
 }
 
 body.dark-mode .shopify .section-title,
 body.dark-mode .shopify .section-title span,
-body.dark-mode .skills,
+
 body.dark-mode .featured-content h4,
 body.dark-mode .shopify-services h3,
 body.dark-mode .shopify-skills h3,
