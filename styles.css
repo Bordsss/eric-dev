@@ -1205,7 +1205,7 @@ body.dark-mode .skill-category h3 {
 .shopify .section-title {
     color: var(--dark-color); /* Use your dark color variable */
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
 }
 
 .shopify .section-title span {
