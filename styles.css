@@ -979,7 +979,6 @@ body.dark-mode header {
 }
 
 body.dark-mode .hero,
-body.dark-mode .skills,
 body.dark-mode .projects {
     background-color: #111827;
 }
@@ -1415,6 +1414,7 @@ body.dark-mode .shopify {
 
 body.dark-mode .shopify .section-title,
 body.dark-mode .shopify .section-title span,
+body.dark-mode .skills,
 body.dark-mode .featured-content h4,
 body.dark-mode .shopify-services h3,
 body.dark-mode .shopify-skills h3,
