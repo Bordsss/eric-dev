@@ -250,19 +250,35 @@ document.addEventListener('DOMContentLoaded', function() {
             const projectCard = document.createElement('div');
             projectCard.className = 'project-card';
             
+            // projectCard.innerHTML = `
+            //     <div class="project-image">
+            //         <img src="${project.image}" alt="${project.title}">
+            //     </div>
+            //     <div class="project-info">
+            //         <h3>${project.title}</h3>
+            //         <p>${project.description}</p>
+            //         <div class="tech-used">
+            //             ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
+            //         </div>
+                    
+            //     </div>
+            // `;
+
             projectCard.innerHTML = `
                 <div class="project-image">
                     <img src="${project.image}" alt="${project.title}">
-                </div>
-                <div class="project-info">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                    <div class="tech-used">
-                        ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
+                    <div class="project-overlay">
+                        <div class="overlay-content">
+                            <h3>${project.title}</h3>
+                            <p>${project.description}</p>
+                            <div class="tech-used">
+                                ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
             `;
+
             
             projectsGrid.appendChild(projectCard);
         });
