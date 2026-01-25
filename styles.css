@@ -1889,71 +1889,95 @@ body.dark-mode .duration {
     z-index: 2;
 }
 /* Figma Section */
-/* Figma Section */
-.figma {
-    padding: 80px 0;
-}
-
-.figma-card.single {
-    max-width: 520px;
-    margin: 40px auto 0;
-    background: var(--card-bg, #ffffff);
-    padding: 40px 30px;
-    text-align: center;
+/* Figma Card with Hover Reveal */
+.figma-card {
+    position: relative;
     border-radius: 16px;
+    overflow: hidden;
+    max-width: 520px;
+    margin: 40px auto;
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
-.figma-card.single:hover {
+.figma-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 25px 45px rgba(0,0,0,0.15);
 }
 
-.figma-icon {
-    font-size: 48px;
-    color: #a259ff; /* Figma purple */
-    margin-bottom: 15px;
-}
-
-.figma-card.single h3 {
-    margin-bottom: 12px;
-}
-
-.figma-card.single p {
-    opacity: 0.85;
-    font-size: 0.95rem;
-}
-/* Parallax Figma Card */
-.parallax-card {
-    overflow: hidden;
-    padding: 0;
-}
-
-/* Image container */
+/* Image Wrapper */
 .figma-image {
-    height: 200px;
+    position: relative;
+    width: 100%;
+    height: 260px;
     overflow: hidden;
 }
 
-/* Image itself */
+/* Image */
 .figma-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.1);
     transition: transform 0.6s ease;
 }
 
-/* Content */
-.figma-content {
-    padding: 35px 30px;
+/* Zoom image on hover */
+.figma-card:hover img {
+    transform: scale(1.1);
 }
 
-/* Parallax effect on hover */
-.parallax-card:hover .figma-image img {
-    transform: scale(1.15) translateY(-10px);
+/* Overlay */
+.figma-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.4),
+        transparent
+    );
+    transform: translateY(100%);
+    transition: transform 0.6s ease;
+    display: flex;
+    align-items: flex-end;
 }
+
+/* Slide overlay up on hover */
+.figma-card:hover .figma-overlay {
+    transform: translateY(0);
+}
+
+/* Overlay content */
+.overlay-content {
+    padding: 25px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.2s;
+    text-align: center;
+}
+
+/* Fade content in */
+.figma-card:hover .overlay-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tech stack pills */
+.tech-stack {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tech-stack span {
+    background: rgba(255,255,255,0.15);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
 
 
 
