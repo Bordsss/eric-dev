@@ -414,3 +414,22 @@ function animateParticles() {
 }
 
 animateParticles();
+const card = document.querySelector('.parallax-card');
+
+card.addEventListener('mousemove', (e) => {
+    const img = card.querySelector('img');
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const moveX = (x - rect.width / 2) / 30;
+    const moveY = (y - rect.height / 2) / 30;
+
+    img.style.transform = `scale(1.15) translate(${moveX}px, ${moveY}px)`;
+});
+
+card.addEventListener('mouseleave', () => {
+    const img = card.querySelector('img');
+    img.style.transform = 'scale(1.1)';
+});
+
