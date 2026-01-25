@@ -1840,3 +1840,27 @@ body.dark-mode .duration {
     background: rgba(255,255,255,0.15);
     border-radius: 20px;
 }
+/* Parallax Hero Effect */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: -5%;
+    background-image: url("https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2");
+    background-size: cover;
+    background-position: center;
+    transform: translate3d(0,0,0);
+    transition: transform 0.1s linear;
+    z-index: -1;
+}
+
+/* Smooth movement for content */
+.hero-content,
+.hero-image {
+    transition: transform 0.1s linear;
+    will-change: transform;
+}
