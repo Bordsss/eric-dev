@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 const hero = document.querySelector('.hero');
 const heroContent = document.querySelector('.hero-content');
-const heroImage = document.querySelector('.hero-image');
+//const heroImage = document.querySelector('.hero-image');
 
 if (window.innerWidth > 768) {
     document.addEventListener('mousemove', (e) => {
@@ -333,7 +333,7 @@ if (window.innerWidth > 768) {
         );
 
         heroContent.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px)`;
-        heroImage.style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
+        //heroImage.style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
     });
 }
 const canvas = document.getElementById('particles');
