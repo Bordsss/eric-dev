@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderProjects(visibleProjects);
 });
 const hero = document.querySelector('.hero');
-const heroContent = document.querySelector('.hero-content');
+// const heroContent = document.querySelector('.hero-content');
 //const heroImage = document.querySelector('.hero-image');
 
 if (window.innerWidth > 768) {
@@ -332,7 +332,7 @@ if (window.innerWidth > 768) {
             `translate(${x * 0.3}px, ${y * 0.3}px)`
         );
 
-        heroContent.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px)`;
+        // heroContent.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px)`;
         //heroImage.style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
     });
 }
