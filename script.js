@@ -313,3 +313,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial render
     renderProjects(visibleProjects);
 });
+const hero = document.querySelector('.hero');
+const heroContent = document.querySelector('.hero-content');
+const heroImage = document.querySelector('.hero-image');
+
+if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+        hero.style.setProperty(
+            '--bg-move',
+            `translate(${x}px, ${y}px)`
+        );
+
+        hero.style.setProperty(
+            'transform',
+            `translate(${x * 0.3}px, ${y * 0.3}px)`
+        );
+
+        heroContent.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px)`;
+        heroImage.style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
+    });
+}
