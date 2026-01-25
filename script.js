@@ -401,7 +401,7 @@ function animateParticles() {
             const dy = mouse.y - p.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
             if (dist < 120) {
-                ctx.strokeStyle = 'rgba(110, 144, 239, 0.1)';
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
                 ctx.beginPath();
                 ctx.moveTo(p.x, p.y);
                 ctx.lineTo(mouse.x, mouse.y);
