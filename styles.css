@@ -1977,24 +1977,6 @@ body.dark-mode .duration {
     border-radius: 20px;
     font-size: 0.75rem;
 }
-/* Define CSS variables for light & dark mode */
-:root {
-    --bg-color: #f9f9f9;
-    --card-bg: #ffffff;
-    --text-color: #0d0d0d;
-    --heading-color: #111111;
-    --accent-color: #1a73e8; /* optional accent for headings */
-}
-
-[data-theme="dark"] {
-    --bg-color: #1a1a1a;
-    --card-bg: #2e2e2e;
-    --text-color: #f0f0f0;
-    --heading-color: #ffffff;
-    --accent-color: #4ea3ff; /* optional accent for headings */
-}
-
-/* SEO Listing Section */
 /* SEO Listing Section - Updated to match existing theme */
 .seo-listing {
     padding: 80px 0;
