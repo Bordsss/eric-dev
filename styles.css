@@ -1995,18 +1995,17 @@ body.dark-mode .duration {
 }
 
 /* SEO Listing Section */
+/* SEO Listing Section - Updated to match existing theme */
 .seo-listing {
     padding: 80px 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: white;
 }
 
 .listing-card {
-    background-color: var(--card-bg);
+    background-color: white;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .listing-block {
@@ -2015,23 +2014,36 @@ body.dark-mode .duration {
 
 .listing-block h4 {
     margin-bottom: 8px;
-    color: var(--heading-color);
+    color: var(--dark-color);
 }
 
 .listing-block p,
 .listing-block ul {
-    color: var(--text-color);
+    color: var(--gray-color);
 }
 
-/* Optional: style list items */
 .listing-block ul li {
     margin-left: 20px;
     margin-bottom: 5px;
 }
 
-/* Smooth transition for theme change */
-body {
-    transition: background-color 0.3s, color 0.3s;
+/* Dark mode styles for SEO section */
+body.dark-mode .seo-listing {
+    background-color: #111827;
+}
+
+body.dark-mode .listing-card {
+    background-color: #1f2937;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .listing-block h4 {
+    color: var(--dark-color);
+}
+
+body.dark-mode .listing-block p,
+body.dark-mode .listing-block ul {
+    color: var(--gray-color);
 }
 
 
