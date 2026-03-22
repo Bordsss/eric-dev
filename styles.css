@@ -1977,7 +1977,25 @@ body.dark-mode .duration {
     border-radius: 20px;
     font-size: 0.75rem;
 }
+.seo-listing {
+    padding: 80px 0;
+}
 
+.listing-card {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.listing-block {
+    margin-bottom: 20px;
+}
+
+.listing-block h4 {
+    margin-bottom: 8px;
+    color: #333;
+}
 
 
 
