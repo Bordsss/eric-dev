@@ -176,7 +176,7 @@
       transition: all 0.25s; cursor: pointer;
     }
     .btn-fill { background: var(--accent); color: #fff; border: none; }
-    .btn-fill:hover { box-shadow: 0 0 28px var(--accent-glow); transform: translateY(-2px); }
+    .btn-fill:hover { box-shadow: 0 4px 16px rgba(14,165,233,0.12); transform: translateY(-2px); }
     .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border2); }
     .btn-ghost:hover { background: var(--surface2); border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
 
@@ -207,7 +207,8 @@
     }
     .orb {
       position: absolute; border-radius: 50%;
-      pointer-events: none; filter: blur(80px);
+      pointer-events: none; filter: blur(50px);
+      opacity: 0.5;
     }
     .orb-1 {
       width: 580px; height: 580px; top: -160px; left: -180px;
@@ -619,19 +620,20 @@
           </div>
 
           <h1 class="hero-title reveal d1">
-            Your Reliable<br/>
-            <span class="grd">Remote Support</span><br/>
-            <span class="srf">Partner.</span>
+            Technical Virtual Assistant<br/>
+            & <span class="grd">IT Support Specialist</span><br/>
+            for Growing Businesses
           </h1>
 
           <p class="hero-sub reveal d2">
             Hi, I'm <strong style="color:#fff">Eric John Batino</strong> —
-            <span class="typed" id="typed"></span><span class="cursor"></span><br/>
-            Based in the Philippines, ready to keep your business running smoothly every day.
+           <span class="typed">
+              Tech-savvy support for admin, e-commerce, and IT operations.
+              </span>
           </p>
 
           <div class="hero-ctas reveal d3">
-            <a href="#contact" class="btn btn-fill"><i class="fas fa-paper-plane"></i> Hire Me Now</a>
+            <a href="#contact" class="btn btn-fill"><i class="fas fa-paper-plane"></i> Discuss Your Project</a>
             <a href="#services" class="btn btn-ghost"><i class="fas fa-list-check"></i> View Services</a>
             <!-- Replace href="Eric John Batino Virtual Assistant.pdf" with your actual CV PDF URL -->
             <a href="EricJohnBatinoCV.pdf" class="btn btn-ghost" download><i class="fas fa-download"></i> Download CV</a>
@@ -712,6 +714,42 @@
       </div>
     </section>
 
+<section id="help">
+  <div class="container">
+    <p class="label">How I Help</p>
+    <h2 class="h2">
+      Support that keeps your business moving
+    </h2>
+
+    <div class="services-grid">
+
+      <div class="svc">
+        <h3>Save Time</h3>
+        <p>
+          I handle repetitive admin tasks, inbox management,
+          scheduling, and organization so you can focus on growth.
+        </p>
+      </div>
+
+      <div class="svc">
+        <h3>Reduce Technical Problems</h3>
+        <p>
+          With an IT background, I troubleshoot issues quickly
+          without needing constant supervision.
+        </p>
+      </div>
+
+      <div class="svc">
+        <h3>Improve Daily Operations</h3>
+        <p>
+          From Shopify updates to spreadsheets and documentation,
+          I help keep workflows organized and efficient.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
     <!-- SERVICES -->
     <section id="services">
       <div class="container">
@@ -816,9 +854,11 @@
             <h3>Officer-in-Charge, MIS</h3>
             <p class="exp-co">Tagum Global Medical Center</p>
             <ul class="exp-list">
-              <li>Managed hospital IT operations, system maintenance, and user support independently</li>
-              <li>Optimized internal digital workflows, reducing operational bottlenecks</li>
-              <li>Ensured consistent system availability across critical healthcare operations</li>
+                <li>Provided daily IT support for hospital staff and maintained critical systems for uninterrupted operations</li>
+
+                <li>Reduced workflow disruptions by troubleshooting hardware, software, and network issues quickly</li>
+
+                <li>Managed digital records and technical concerns in a fast-paced healthcare environment</li>
             </ul>
           </div>
 
@@ -851,7 +891,7 @@
     <!-- TOOLS -->
     <section id="tools">
       <div class="container">
-        <p class="label reveal">Tech Stack</p>
+        <p class="label reveal">Tools & Platforms</p>
         <h2 class="h2 reveal d1">Tools I <em>Work With</em></h2>
         <p class="lead reveal d2" style="margin-bottom:0">Familiar with the platforms most businesses already use — zero onboarding friction.</p>
 
