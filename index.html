@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+  <link rel="icon" type="image/x-icon" href="tabdp.jpg">
   <style>
     /* =============================================
        DESIGN TOKENS
@@ -1106,7 +1106,7 @@
           </div>
 
           <!-- Form -->
-          <div class="cform reveal d2">
+          <form id="contact-form" class="cform reveal d2" action="https://formsubmit.co/ericjohnbatino0821@gmail.com">
             <div class="frow2">
               <div class="fg">
                 <label for="fn">Your Name</label>
@@ -1136,7 +1136,15 @@
             </div>
             <button class="btn-submit" onclick="sendMsg()"><i class="fas fa-paper-plane"></i> &nbsp;Send Message</button>
             <p id="form-status"></p>
-          </div>
+
+            <!-- Spam protection -->
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_subject" value="New message from your portfolio site">
+                    <input type="hidden" name="_next" value="https://eric-dev.vercel.app/thank-you.html">
+                    <input type="hidden" name="_replyto" value="">
+          </form>
 
         </div>
       </div>
