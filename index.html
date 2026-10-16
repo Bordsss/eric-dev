@@ -1,1226 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eric John Batino — IT Support & Virtual Assistant</title>
-  <meta name="description" content="Eric John Batino — Reliable IT Support Specialist & Virtual Assistant based in the Philippines. Available for remote work." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="icon" type="image/x-icon" href="tabdp.jpg">
-  <style>
-    /* =============================================
-       DESIGN TOKENS
-    ============================================= */
-    :root {
-      --bg:          #05080f;
-      --bg2:         #080d1a;
-      --bg3:         #0b1120;
-      --surface:     rgba(255,255,255,0.035);
-      --surface2:    rgba(255,255,255,0.065);
-      --border:      rgba(255,255,255,0.08);
-      --border2:     rgba(255,255,255,0.14);
-      --accent:      #0ea5e9;
-      --accent2:     #22d3ee;
-      --accent-soft: rgba(14,165,233,0.12);
-      --accent-glow: rgba(14,165,233,0.28);
-      --green:       #34d399;
-      --text:        #dde5f0;
-      --text2:       #a8b8cc;
-      --muted:       #60748a;
-      --font-head:   'Plus Jakarta Sans', sans-serif;
-      --font-body:   'Plus Jakarta Sans', sans-serif;
-      --font-serif:  'Instrument Serif', serif;
-      --radius:      12px;
-      --radius-lg:   20px;
-      --radius-xl:   28px;
-      --nav-h:       68px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-weight: 400;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    ul { list-style: none; }
-    button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
-
-    /* Grain overlay */
-    body::after {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      opacity: 0.022; pointer-events: none; z-index: 9998;
-    }
-
-    /* =============================================
-       FLOATING GLASS HEADER
-    ============================================= */
-    #header {
-      position: fixed;
-      top: 14px; left: 50%;
-      transform: translateX(-50%);
-      width: min(calc(100% - 32px), 980px);
-      height: var(--nav-h);
-      background: rgba(5,8,15,0.5);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-      z-index: 1000;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
-      transition: background 0.4s;
-    }
-    #header.scrolled { background: rgba(5,8,15,0.88); }
-
-    .nav-logo {
-      font-weight: 800; font-size: 1.05rem;
-      color: #fff; letter-spacing: -0.4px;
-      display: flex; align-items: center; gap: 7px;
-    }
-    .logo-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent); box-shadow: 0 0 10px var(--accent);
-    }
-
-    nav ul { display: flex; gap: 2px; }
-    nav ul li a {
-      font-size: 0.82rem; font-weight: 500;
-      padding: 7px 13px; border-radius: 99px;
-      color: var(--text2); transition: color 0.2s, background 0.2s;
-    }
-    nav ul li a:hover, nav ul li a.active { color: #fff; background: var(--surface2); }
-    .nav-cta {
-      background: var(--accent) !important; color: #fff !important;
-      font-weight: 600 !important; padding: 8px 20px !important;
-      border-radius: 99px !important; transition: box-shadow 0.2s, transform 0.2s !important;
-    }
-    .nav-cta:hover { box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-1px); }
-
-    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 5px; }
-    .hamburger span { display: block; width: 21px; height: 2px; background: var(--text2); border-radius: 99px; transition: 0.3s; }
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      top: calc(var(--nav-h) + 20px);
-      left: 16px; right: 16px;
-      background: rgba(8,13,26,0.96);
-      backdrop-filter: blur(24px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 16px; z-index: 999;
-      flex-direction: column; gap: 4px;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a {
-      padding: 12px 16px; border-radius: var(--radius);
-      font-size: 0.93rem; font-weight: 500;
-      color: var(--text2); transition: all 0.2s;
-    }
-    .mobile-nav a:hover { background: var(--surface2); color: #fff; }
-
-    /* =============================================
-       SECTION HELPERS
-    ============================================= */
-    section { padding: 108px 20px; }
-    .container { max-width: 1020px; margin: 0 auto; }
-
-    .label {
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 12px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .label::after {
-      content: ''; flex: 1; max-width: 40px;
-      height: 1px; background: var(--accent); opacity: 0.4;
-    }
-
-    .h2 {
-      font-size: clamp(1.85rem, 4vw, 2.8rem);
-      font-weight: 800; line-height: 1.12;
-      letter-spacing: -0.8px; color: #fff; margin-bottom: 14px;
-    }
-    .h2 em { font-family: var(--font-serif); font-style: italic; color: var(--accent2); font-weight: 400; }
-
-    .lead { color: var(--text2); font-size: 0.96rem; max-width: 520px; line-height: 1.85; }
-
-    /* Reveal */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; }
-    .d3 { transition-delay: 0.24s; } .d4 { transition-delay: 0.32s; }
-    .d5 { transition-delay: 0.40s; }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--font-body); font-weight: 600;
-      font-size: 0.88rem; padding: 13px 26px; border-radius: 99px;
-      transition: all 0.25s; cursor: pointer;
-    }
-    .btn-fill { background: var(--accent); color: #fff; border: none; }
-    .btn-fill:hover { box-shadow: 0 4px 16px rgba(14,165,233,0.12); transform: translateY(-2px); }
-    .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border2); }
-    .btn-ghost:hover { background: var(--surface2); border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
-
-    /* Social icon */
-    .soc {
-      width: 40px; height: 40px; border-radius: 50%;
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted); font-size: 0.88rem; transition: all 0.2s;
-    }
-    .soc:hover { color: #fff; border-color: var(--accent); background: var(--accent-soft); transform: translateY(-3px); }
-
-    /* =============================================
-       HERO
-    ============================================= */
-    #hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding-top: 120px; position: relative; overflow: hidden;
-    }
-    /* Grid dots */
-    #hero .grid-bg {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 20%, transparent 100%);
-      pointer-events: none;
-    }
-    .orb {
-      position: absolute; border-radius: 50%;
-      pointer-events: none; filter: blur(50px);
-      opacity: 0.5;
-    }
-    .orb-1 {
-      width: 580px; height: 580px; top: -160px; left: -180px;
-      background: radial-gradient(circle, rgba(14,165,233,0.16), transparent 70%);
-      animation: f1 12s ease-in-out infinite alternate;
-    }
-    .orb-2 {
-      width: 480px; height: 480px; bottom: -100px; right: -140px;
-      background: radial-gradient(circle, rgba(34,211,238,0.1), transparent 70%);
-      animation: f2 15s ease-in-out infinite alternate;
-    }
-    @keyframes f1 { to { transform: translate(50px, 30px) scale(1.1); } }
-    @keyframes f2 { to { transform: translate(-40px, -25px) scale(1.08); } }
-
-    .hero-inner { position: relative; z-index: 1; max-width: 800px; }
-
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--surface2); border: 1px solid var(--border2);
-      border-radius: 99px; padding: 7px 18px; margin-bottom: 28px;
-      font-size: 0.77rem; font-weight: 600; color: var(--accent2); letter-spacing: 0.4px;
-    }
-    .pulse-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--green); box-shadow: 0 0 8px var(--green);
-      animation: pulse 2.2s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.75)} }
-
-    .hero-title {
-      font-size: clamp(2.8rem, 9vw, 2rem);
-      font-weight: 800; line-height: 1.02;
-      letter-spacing: -2.5px; color: #fff; margin-bottom: 4px;
-    }
-    .hero-title .grd {
-      background: linear-gradient(100deg, var(--accent), var(--accent2) 60%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .hero-title .srf {
-      font-family: var(--font-serif); font-style: italic;
-      font-weight: 400; color: var(--text2);
-    }
-
-    .hero-sub {
-      font-size: clamp(0.95rem, 2.2vw, 1.12rem);
-      color: var(--text2); font-weight: 400; margin: 20px 0 36px; line-height: 1.75;
-    }
-    .hero-sub .typed { color: var(--accent2); font-weight: 600; }
-    .cursor {
-      display: inline-block; width: 2px; height: 1em;
-      background: var(--accent); vertical-align: text-bottom; margin-left: 2px;
-      animation: blink .95s step-end infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 44px; }
-    .hero-socials { display: flex; gap: 12px; }
-
-    .scroll-hint {
-      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      opacity: 0.35; font-size: 0.67rem; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--muted);
-    }
-    .scroll-hint::after {
-      content: ''; width: 1px; height: 44px;
-      background: linear-gradient(to bottom, var(--muted), transparent);
-      animation: drop 2s ease-in-out infinite;
-    }
-    @keyframes drop {
-      0%   { transform: scaleY(0); transform-origin: top; }
-      50%  { transform: scaleY(1); transform-origin: top; }
-      51%  { transform: scaleY(1); transform-origin: bottom; }
-      100% { transform: scaleY(0); transform-origin: bottom; }
-    }
-
-    /* =============================================
-       ABOUT
-    ============================================= */
-    #about { background: var(--bg2); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 350px 1fr;
-      gap: 60px; align-items: start;
-    }
-
-    /* Profile card */
-    .profile-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 32px 26px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .profile-card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 100px;
-      background: linear-gradient(135deg, rgba(14,165,233,0.14), rgba(34,211,238,0.07));
-    }
-    .av-wrap { position: relative; display: inline-block; margin-bottom: 16px; z-index: 1; }
-    .av-ring {
-      width: 96px; height: 96px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      padding: 2.5px; margin: 0 auto;
-      box-shadow: 0 0 32px rgba(14,165,233,.3);
-    }
-    .av-inner {
-      width: 100%; height: 100%; border-radius: 50%;
-      background: var(--bg3);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.9rem; font-weight: 800; color: var(--accent); letter-spacing: -1px;
-    }
-    .av-badge {
-      position: absolute; bottom: 2px; right: -2px;
-      background: var(--bg3); border: 2px solid var(--bg3);
-      border-radius: 99px; padding: 3px 9px;
-      font-size: 0.63rem; font-weight: 700; color: var(--green);
-      display: flex; align-items: center; gap: 5px;
-    }
-    .av-badge::before {
-      content: ''; width: 6px; height: 6px;
-      background: var(--green); border-radius: 50%;
-      box-shadow: 0 0 6px var(--green);
-    }
-    .pname { font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 4px; z-index:1; position:relative; }
-    .prole { font-size: 0.78rem; color: var(--accent2); font-weight: 600; letter-spacing:.3px; z-index:1; position:relative; margin-bottom:18px; }
-
-    .pmeta {
-      display: flex; flex-direction: column; gap: 10px;
-      border-top: 1px solid var(--border);
-      padding-top: 18px; text-align: left;
-    }
-    .pmeta-row { display: flex; align-items: center; gap: 10px; font-size: 0.81rem; }
-    .pmeta-row i {
-      width: 28px; height: 28px; border-radius: 8px;
-      background: var(--accent-soft);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent); font-size: 0.72rem; flex-shrink: 0;
-    }
-    .pmeta-row span { color: var(--text2); }
-    .pmeta-row a { color: var(--accent2); }
-    .pmeta-row a:hover { text-decoration: underline; }
-
-    .pstats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
-    .pstat {
-      background: var(--surface2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 14px; text-align: center;
-    }
-    .pstat strong { display: block; font-size: 1.45rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
-    .pstat small { font-size: 0.68rem; color: var(--muted); }
-
-    /* About text */
-    .about-text p { color: var(--text2); font-size: 0.95rem; line-height: 1.9; margin-bottom: 16px; }
-    .about-text p strong { color: #fff; font-weight: 600; }
-
-    .vprops { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; }
-    .vp {
-      display: flex; align-items: flex-start; gap: 14px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 15px 18px; transition: all .2s;
-    }
-    .vp:hover { background: var(--surface2); border-color: rgba(14,165,233,.2); }
-    .vpicon {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: var(--accent-soft); border: 1px solid rgba(14,165,233,.2);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent); font-size: .82rem; flex-shrink: 0;
-    }
-    .vptext strong { display: block; font-size: .86rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
-    .vptext span { font-size: .79rem; color: var(--muted); }
-
-    /* =============================================
-       SERVICES
-    ============================================= */
-    #services { background: var(--bg); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 18px; margin-top: 48px;
-    }
-    .svc {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-xl); padding: 30px;
-      transition: all .28s; position: relative; overflow: hidden;
-    }
-    .svc .gc {
-      position: absolute; top: -40px; right: -40px;
-      width: 120px; height: 120px; border-radius: 50%;
-      background: var(--accent-soft); filter: blur(28px);
-      opacity: 0; transition: opacity .3s;
-    }
-    .svc:hover { border-color: rgba(14,165,233,.3); transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,.28); }
-    .svc:hover .gc { opacity: 1; }
-    .svc-icon {
-      width: 50px; height: 50px; border-radius: var(--radius);
-      background: var(--accent-soft); border: 1px solid rgba(14,165,233,.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.25rem; margin-bottom: 18px;
-    }
-    .svc h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .svc p { font-size: .82rem; color: var(--text2); line-height: 1.75; margin-bottom: 16px; }
-    .stags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .stag {
-      font-size: .67rem; font-weight: 600; padding: 4px 10px;
-      background: var(--surface2); border: 1px solid var(--border);
-      border-radius: 99px; color: var(--text2);
-    }
-
-    /* =============================================
-       EXPERIENCE
-    ============================================= */
-    #experience { background: var(--bg2); }
-    .exp-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 18px; margin-top: 48px;
-    }
-    .exp-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-xl); padding: 28px;
-      transition: all .25s; border-left: 3px solid transparent;
-    }
-    .exp-card:hover { background: var(--surface2); border-left-color: var(--accent); transform: translateX(4px); }
-    .exp-period {
-      font-size: .69rem; font-weight: 700; letter-spacing: 1.5px;
-      padding: 4px 12px; border-radius: 99px;
-      background: var(--accent-soft); border: 1px solid rgba(14,165,233,.2);
-      color: var(--accent); display: inline-block; margin-bottom: 14px;
-    }
-    .exp-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .exp-co { font-size: .82rem; color: var(--accent2); font-weight: 600; margin-bottom: 14px; }
-    .exp-list li {
-      font-size: .81rem; color: var(--text2);
-      padding: 4px 0 4px 16px; position: relative; line-height: 1.65;
-    }
-    .exp-list li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 1rem; }
-
-    /* =============================================
-       TOOLS
-    ============================================= */
-    #tools { background: var(--bg); }
-    .tools-layout {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px; margin-top: 48px;
-    }
-    .tgrp {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 22px; transition: all .22s;
-    }
-    .tgrp:hover { background: var(--surface2); border-color: rgba(14,165,233,.18); }
-    .tgrp-lbl {
-      font-size: .67rem; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
-    }
-    .titem { display: flex; align-items: center; gap: 9px; font-size: .82rem; color: var(--text2); padding: 5px 0; }
-    .titem i { width: 18px; text-align: center; color: var(--accent2); font-size: .78rem; }
-
-    /* =============================================
-       WHY ME
-    ============================================= */
-    #why { background: var(--bg2); }
-    .why-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 18px; margin-top: 48px;
-    }
-    .why-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-xl); padding: 30px;
-      text-align: center; transition: all .25s;
-    }
-    .why-card:hover { background: var(--surface2); border-color: rgba(14,165,233,.25); transform: translateY(-4px); }
-    .why-emoji { font-size: 2.2rem; margin-bottom: 16px; }
-    .why-card h3 { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .why-card p { font-size: .81rem; color: var(--muted); line-height: 1.75; }
-
-    /* =============================================
-       CONTACT
-    ============================================= */
-    #contact { background: var(--bg); }
-    .contact-wrap {
-      display: grid; grid-template-columns: 1fr 1.3fr;
-      gap: 52px; align-items: start; margin-top: 52px;
-    }
-    .cl h3 { font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 14px; }
-    .cl h3 em { font-family: var(--font-serif); font-style: italic; color: var(--accent2); }
-    .cl p { font-size: .87rem; color: var(--text2); line-height: 1.85; margin-bottom: 28px; }
-    .cinfo { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
-    .cinfo-i {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: var(--accent-soft); border: 1px solid rgba(14,165,233,.18);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent); font-size: .78rem; flex-shrink: 0;
-    }
-    .cinfo-t strong { display: block; font-size: .73rem; font-weight: 700; color: var(--muted); margin-bottom: 2px; text-transform: uppercase; letter-spacing: .8px; }
-    .cinfo-t span, .cinfo-t a { font-size: .84rem; color: var(--text2); }
-    .cinfo-t a:hover { color: var(--accent2); }
-    .csocs { display: flex; gap: 10px; margin-top: 22px; }
-
-    .cform {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-xl); padding: 34px;
-    }
-    .frow2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .fg { margin-bottom: 16px; }
-    .fg label { display: block; font-size: .73rem; font-weight: 700; color: var(--text2); margin-bottom: 7px; letter-spacing: .3px; }
-    .fg input, .fg textarea, .fg select {
-      width: 100%; background: rgba(255,255,255,.04);
-      border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 12px 15px; color: var(--text);
-      font-family: var(--font-body); font-size: .87rem;
-      outline: none; transition: border-color .2s, box-shadow .2s;
-    }
-    .fg input:focus, .fg textarea:focus, .fg select:focus {
-      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(14,165,233,.1);
-    }
-    .fg textarea { min-height: 118px; resize: vertical; }
-    .fg input::placeholder, .fg textarea::placeholder { color: var(--muted); }
-    .fg select option { background: var(--bg3); }
-    .btn-submit {
-      width: 100%; background: linear-gradient(135deg, var(--accent), #0284c7);
-      color: #fff; font-family: var(--font-body); font-weight: 700;
-      font-size: .9rem; padding: 14px; border-radius: var(--radius);
-      border: none; cursor: pointer; transition: all .25s; letter-spacing: .3px;
-    }
-    .btn-submit:hover { box-shadow: 0 8px 28px var(--accent-glow); transform: translateY(-2px); }
-    #form-status { text-align: center; font-size: .82rem; margin-top: 10px; min-height: 18px; }
-
-    /* =============================================
-       FOOTER
-    ============================================= */
-    footer { border-top: 1px solid var(--border); padding: 26px 20px; text-align: center; }
-    footer p { font-size: .78rem; color: var(--muted); }
-    footer span { color: var(--accent); }
-
-    /* =============================================
-       SCROLL TOP
-    ============================================= */
-    #scroll-top {
-      position: fixed; bottom: 22px; right: 22px;
-      width: 42px; height: 42px; background: var(--accent);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: .85rem;
-      box-shadow: 0 4px 18px var(--accent-glow);
-      opacity: 0; pointer-events: none;
-      transition: opacity .3s, transform .3s; z-index: 500; cursor: pointer;
-    }
-    #scroll-top.show { opacity: 1; pointer-events: all; }
-    #scroll-top:hover { transform: translateY(-3px); }
-
-    /* =============================================
-       hero grid
-    ============================================= */
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
-  align-items: center;
-  min-height: 85vh;
-}
-
-.hero-content {
-  max-width: 650px;
-}
-
-.hero-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-image-wrap {
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 6px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.03);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.45),
-              0 0 0 12px rgba(14,165,233,0.15);
-  transition: transform 0.4s ease;
-}
-
-.hero-image-wrap:hover {
-  transform: scale(1.03);
-}
-
-.hero-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Responsive */
-@media (max-width: 820px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
-  .hero-image-wrap {
-    width: 280px;
-    height: 280px;
-    margin: 0 auto;
-  }
-}
-    /* =============================================
-       RESPONSIVE
-    ============================================= */
-    @media (max-width: 820px) {
-      nav ul, .nav-cta { display: none !important; }
-      .hamburger { display: flex; }
-      .about-grid { grid-template-columns: 1fr; gap: 32px; }
-      .exp-grid { grid-template-columns: 1fr; }
-      .contact-wrap { grid-template-columns: 1fr; gap: 32px; }
-      .frow2 { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 480px) {
-      section { padding: 80px 16px; }
-      .hero-title { letter-spacing: -1.5px; }
-      #header { top: 10px; padding: 0 16px; }
-    }
-
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eric John Batino — IT Support Specialist</title>
+<meta name="description" content="Eric John Batino — IT Support Specialist (help desk, Windows, network and remote support) based in the Philippines. Open to remote work." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/jpeg" href="tabdp.jpg" />
+<style>
+:root{--bg:#05080f;--bg2:#080d1a;--s:rgba(255,255,255,.035);--s2:rgba(255,255,255,.065);--bd:rgba(255,255,255,.08);--a:#0ea5e9;--a2:#22d3ee;--soft:rgba(14,165,233,.12);--g:#34d399;--t:#dde5f0;--t2:#a8b8cc;--m:#60748a;--f:'Plus Jakarta Sans',sans-serif;--sf:'Instrument Serif',serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--f);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img,svg{max-width:100%;display:block}ul{list-style:none}
+section{padding:96px 20px}.c{max-width:1020px;margin:0 auto}
+.alt{background:var(--bg2)}
+.lbl{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--a);margin-bottom:10px}
+h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;line-height:1.12;letter-spacing:-.8px;color:#fff;margin-bottom:12px}
+h2 em,.cta h3 em{font-family:var(--sf);font-style:italic;color:var(--a2);font-weight:400}
+.lead{color:var(--t2);font-size:.95rem;max-width:540px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.88rem;padding:12px 24px;border-radius:99px;transition:.25s}
+.fill{background:var(--a);color:#fff}.fill:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(14,165,233,.35)}
+.ghost{border:1px solid rgba(255,255,255,.14)}.ghost:hover{background:var(--s2);transform:translateY(-2px)}
+/* header */
+#h{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(calc(100% - 32px),980px);height:64px;background:rgba(5,8,15,.7);backdrop-filter:blur(20px);border:1px solid var(--bd);border-radius:28px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;z-index:50}
+.logo{font-weight:800;color:#fff;display:flex;align-items:center;gap:8px}.logo i{width:8px;height:8px;border-radius:50%;background:var(--a);box-shadow:0 0 10px var(--a)}
+#h nav{display:flex;gap:2px}#h nav a{font-size:.82rem;font-weight:500;padding:7px 13px;border-radius:99px;color:var(--t2)}#h nav a:hover{color:#fff;background:var(--s2)}
+#h nav .hire{background:var(--a);color:#fff;font-weight:600}
+/* hero */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:110px;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/36px 36px;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 0,#000 20%,transparent 100%);mask-image:radial-gradient(ellipse 80% 70% at 50% 0,#000 20%,transparent 100%)}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative}
+.badge{display:inline-flex;align-items:center;gap:10px;background:var(--s2);border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:7px 18px;margin-bottom:24px;font-size:.77rem;font-weight:600;color:var(--a2)}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--g);box-shadow:0 0 8px var(--g)}
+h1{font-size:clamp(2.3rem,6vw,3.8rem);font-weight:800;line-height:1.05;letter-spacing:-2px;color:#fff}
+h1 span{background:linear-gradient(100deg,var(--a),var(--a2) 60%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--t2);font-size:1.05rem;margin:18px 0 30px}.sub b{color:#fff}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.photo{position:relative;width:min(380px,100%);aspect-ratio:1;margin:0 auto}
+.photo>img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:6px solid rgba(255,255,255,.1);box-shadow:0 20px 60px rgba(0,0,0,.45),0 0 0 12px rgba(14,165,233,.15)}
+.chip{position:absolute;display:flex;align-items:center;gap:8px;background:rgba(8,13,26,.92);border:1px solid var(--bd);border-radius:14px;padding:8px 14px 8px 8px;font-size:.75rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.chip svg{width:38px;height:28px}
+.c1{top:6%;left:-8%}.c2{bottom:14%;left:-12%}.c3{top:30%;right:-8%}
+/* illustrations */
+.ill{stroke:var(--a2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ill .f{fill:var(--soft)}.ill .a{fill:var(--a);stroke:none}
+.art{height:110px;border-radius:14px;margin-bottom:18px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(14,165,233,.18),rgba(34,211,238,.05));border:1px solid rgba(14,165,233,.15)}
+.art svg{height:84px;width:auto}
+/* about */
+.ag{display:grid;grid-template-columns:330px 1fr;gap:56px;align-items:start}
+.pc{background:var(--s);border:1px solid var(--bd);border-radius:28px;padding:30px 24px;text-align:center}
+.pc img{width:110px;height:110px;border-radius:50%;object-fit:cover;margin:0 auto 14px;border:3px solid var(--a)}
+.pc h3{color:#fff;font-size:1.15rem}.pc .r{color:var(--a2);font-size:.78rem;font-weight:600;margin-bottom:16px}
+.pm{text-align:left;border-top:1px solid var(--bd);padding-top:14px;font-size:.8rem;color:var(--t2);display:grid;gap:6px;word-break:break-word}.pm a{color:var(--a2)}
+.st{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.st div{background:var(--s2);border:1px solid var(--bd);border-radius:12px;padding:12px}.st b{display:block;font-size:1.4rem;color:#fff;line-height:1.1}.st small{font-size:.68rem;color:var(--m)}
+.at p{color:var(--t2);font-size:.95rem;margin-bottom:14px}.at strong{color:#fff}
+.vp{display:flex;align-items:center;gap:14px;background:var(--s);border:1px solid var(--bd);border-radius:18px;padding:12px 16px;margin-top:12px}
+.vp svg{width:56px;height:42px;flex-shrink:0}.vp strong{display:block;color:#fff;font-size:.86rem}.vp span{font-size:.79rem;color:var(--m)}
+/* cards */
+.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;margin-top:44px}
+.card{background:var(--s);border:1px solid var(--bd);border-radius:26px;padding:22px 24px 26px;transition:.28s}
+.card:hover{border-color:rgba(14,165,233,.3);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.28)}
+.card h3{font-size:1rem;color:#fff;margin-bottom:6px}.card p{font-size:.82rem;color:var(--t2);margin-bottom:14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tags span{font-size:.67rem;font-weight:600;padding:4px 10px;background:var(--s2);border:1px solid var(--bd);border-radius:99px;color:var(--t2)}
+.per{display:inline-block;font-size:.69rem;font-weight:700;letter-spacing:1.5px;padding:4px 12px;border-radius:99px;background:var(--soft);color:var(--a);margin-bottom:10px}
+.co{font-size:.82rem;color:var(--a2);font-weight:600;margin-bottom:10px}
+.card li{font-size:.81rem;color:var(--t2);padding:3px 0 3px 16px;position:relative}.card li::before{content:'›';position:absolute;left:0;color:var(--a)}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:44px}
+.tg .card{padding:20px}.tg h4{font-size:.67rem;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:10px}
+.tg li{font-size:.82rem;color:var(--t2);padding:3px 0 3px 18px;position:relative}.tg li::before{content:'✓';position:absolute;left:0;color:var(--a2);font-size:.75rem}
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:44px;align-items:center}
+.cta h3{font-size:1.6rem;color:#fff;line-height:1.25;margin-bottom:12px}.cta p{color:var(--t2);font-size:.9rem;margin-bottom:22px}
+.ci{display:grid;gap:12px}.ci a,.ci div{display:flex;align-items:center;gap:14px;background:var(--s);border:1px solid var(--bd);border-radius:16px;padding:14px 18px;font-size:.86rem;color:var(--t2);word-break:break-word}
+.ci a:hover{border-color:var(--a)}.ci b{display:block;font-size:.68rem;color:var(--m);letter-spacing:1px;text-transform:uppercase}
+.ci svg{width:40px;height:30px;flex-shrink:0}
+footer{border-top:1px solid var(--bd);padding:24px 20px;text-align:center;font-size:.78rem;color:var(--m)}footer span{color:var(--a)}
+@media(max-width:820px){#h nav{display:none}.hg,.ag,.cta{grid-template-columns:1fr}.hg{gap:40px;text-align:center}.ctas{justify-content:center}.c1{left:0}.c2{left:0}.c3{right:0}section{padding:80px 16px}}
+</style>
 </head>
 <body>
+<!-- Illustration library (used with <use href="#id">) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="desk" viewBox="0 0 120 80"><rect class="f" x="20" y="8" width="80" height="48" rx="5"/><path d="M46 56v12M74 56v12M36 68h48"/><path class="a" d="M48 20h11v10H48zM61 20h11v10H61zM48 32h11v10H48zM61 32h11v10H61z"/></symbol>
+<symbol id="print" viewBox="0 0 120 80"><path d="M38 28V10h44v18"/><rect class="f" x="20" y="28" width="80" height="30" rx="6"/><rect class="f" x="38" y="46" width="44" height="24" rx="2"/><path d="M46 54h28M46 61h18"/><circle class="a" cx="90" cy="37" r="2.5"/></symbol>
+<symbol id="net" viewBox="0 0 120 80"><rect class="f" x="26" y="50" width="68" height="18" rx="5"/><circle class="a" cx="40" cy="59" r="2.5"/><circle class="a" cx="50" cy="59" r="2.5"/><path d="M60 50V42M42 30a26 26 0 0 1 36 0M49 37a16 16 0 0 1 22 0"/><circle class="a" cx="60" cy="42" r="2.5"/></symbol>
+<symbol id="user" viewBox="0 0 120 80"><circle class="f" cx="42" cy="26" r="12"/><path d="M18 66c2-14 12-20 24-20s22 6 24 20"/><path class="f" d="M88 18l16 6v12c0 12-8 18-16 22-8-4-16-10-16-22V24z"/><path d="M80 38l5 5 10-11"/></symbol>
+<symbol id="remote" viewBox="0 0 120 80"><rect class="f" x="10" y="10" width="64" height="42" rx="4"/><path d="M32 62h20M42 52v10"/><rect class="f" x="72" y="34" width="38" height="28" rx="4"/><path class="a" d="M50 24v18l5-4 4 9 4-2-4-9 7-1z"/></symbol>
+<symbol id="ticket" viewBox="0 0 120 80"><rect class="f" x="30" y="6" width="60" height="68" rx="6"/><path d="M45 24l4 4 8-8M64 24h18M45 42l4 4 8-8M64 42h18M45 60h12M64 60h18"/></symbol>
+<symbol id="hosp" viewBox="0 0 120 80"><rect class="f" x="22" y="14" width="76" height="54" rx="4"/><path class="a" d="M54 24h12v11h11v12H66v11H54V47H43V35h11z"/><path d="M14 68h92"/></symbol>
+<symbol id="univ" viewBox="0 0 120 80"><path class="f" d="M12 30L60 10l48 20z"/><path d="M24 36v26M44 36v26M76 36v26M96 36v26M14 68h92"/></symbol>
+<symbol id="code" viewBox="0 0 120 80"><rect class="f" x="16" y="10" width="88" height="58" rx="5"/><path d="M44 28l-12 11 12 11M76 28l12 11-12 11M66 24l-12 30"/></symbol>
+<symbol id="mail" viewBox="0 0 120 80"><rect class="f" x="18" y="16" width="84" height="50" rx="6"/><path d="M18 22l42 28 42-28"/></symbol>
+<symbol id="phone" viewBox="0 0 120 80"><rect class="f" x="40" y="6" width="40" height="68" rx="8"/><path d="M54 14h12"/><circle class="a" cx="60" cy="64" r="3"/></symbol>
+<symbol id="pin" viewBox="0 0 120 80"><path class="f" d="M60 72C44 54 36 44 36 32a24 24 0 0 1 48 0c0 12-8 22-24 40z"/><circle class="a" cx="60" cy="32" r="8"/></symbol>
+<symbol id="globe" viewBox="0 0 120 80"><circle class="f" cx="60" cy="40" r="30"/><path d="M30 40h60M60 10c-14 16-14 44 0 60M60 10c14 16 14 44 0 60"/></symbol>
+</svg>
 
-  <!-- FLOATING GLASS HEADER -->
-  <header id="header">
-    <a href="#hero" class="nav-logo"><div class="logo-dot"></div>Eric Batino</a>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#tools">Tools</a></li>
-        <li><a href="#contact" class="nav-cta">Hire Me</a></li>
-      </ul>
-    </nav>
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
+<header id="h">
+  <a href="#hero" class="logo"><i></i>Eric Batino</a>
+  <nav aria-label="Primary"><a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact" class="hire">Hire Me</a></nav>
+</header>
 
-  <div class="mobile-nav" id="mobile-nav">
-    <a href="#about"      onclick="closeMob()">About</a>
-    <a href="#services"   onclick="closeMob()">Services</a>
-    <a href="#experience" onclick="closeMob()">Experience</a>
-    <a href="#tools"      onclick="closeMob()">Tools</a>
-    <a href="#why"        onclick="closeMob()">Why Me</a>
-    <a href="#contact"    onclick="closeMob()">Contact</a>
-  </div>
-
-  <main>
-
-   <!-- HERO -->
-<!-- HERO -->
-<section id="hero">
-  <div class="grid-bg"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-
-  <div class="container">
-
-    <div class="hero-grid">
-
-      <!-- LEFT: Text Content -->
-      <div class="hero-content">
-
-        <div class="hero-inner">
-
-          <div class="hero-badge reveal">
-            <div class="pulse-dot"></div>
-            Open to remote opportunities
-          </div>
-
-          <h1 class="hero-title reveal d1">
-            Technical Virtual Assistant<br/>
-            & <span class="grd">IT Support Specialist</span><br/>
-            for Growing Businesses
-          </h1>
-
-          <p class="hero-sub reveal d2">
-            Hi, I'm <strong style="color:#fff">Eric John Batino</strong> — 
-            <span class="typed">Tech-savvy support for admin, e-commerce, and IT operations.</span>
-          </p>
-
-          <div class="hero-ctas reveal d3">
-            <a href="#contact" class="btn btn-fill">
-              <i class="fas fa-paper-plane"></i>
-              Discuss Your Project
-            </a>
-
-            <a href="#services" class="btn btn-ghost">
-              <i class="fas fa-list-check"></i>
-              View Services
-            </a>
-
-            <a href="EricJohnBatinoCV.pdf" class="btn btn-ghost" download>
-              <i class="fas fa-download"></i>
-              Download CV
-            </a>
-          </div>
-
-          <div class="hero-socials reveal d4">
-            <a href="mailto:ericjohnbatino0821@gmail.com" class="soc" aria-label="Email">
-              <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://eric-dev.vercel.app" target="_blank" rel="noopener" class="soc" aria-label="Portfolio">
-              <i class="fas fa-globe"></i>
-            </a>
-            <a href="https://tinyurl.com/3y8m6ytp" target="_blank" rel="noopener" class="soc" aria-label="Design Samples">
-              <i class="fas fa-images"></i>
-            </a>
-            <a href="tel:+639383147280" class="soc" aria-label="Phone">
-              <i class="fas fa-phone"></i>
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- RIGHT: Round Profile Image -->
-      <div class="hero-image reveal d3">
-        <div class="hero-image-wrap">
-          <img src="tabdp.jpg" alt="Eric John Batino - IT Support & Virtual Assistant" />
-        </div>
-      </div>
-
+<main>
+<section id="hero"><div class="c"><div class="hg">
+  <div>
+    <div class="badge"><i></i>Open to remote opportunities</div>
+    <h1><span>IT Support Specialist</span><br/>Help Desk, Windows &amp; Network Support</h1>
+    <p class="sub">Hi, I'm <b>Eric John Batino</b>. I have about two years of help desk, desktop, and network experience in a hospital and a university.</p>
+    <div class="ctas">
+      <a href="#contact" class="btn fill">Contact Me</a>
+      <a href="#services" class="btn ghost">View Services</a>
+      <a href="Eric_John_Batino_IT_Support_Resume.pdf" class="btn ghost" download>Download Resume</a>
     </div>
   </div>
-
-  <div class="scroll-hint">Scroll</div>
-</section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
-        <div class="about-grid">
-
-          <!-- Profile card -->
-          <div class="reveal">
-            <div class="profile-card">
-              <div class="av-wrap">
-                <div class="av-ring"><div class="av-inner">EJB</div></div>
-                <div class="av-badge">Available</div>
-              </div>
-              <p class="pname">Eric John Batino</p>
-              <p class="prole">IT Support &nbsp;·&nbsp; Virtual Assistant</p>
-              <div class="pmeta">
-                <div class="pmeta-row"><i class="fas fa-map-marker-alt"></i><span>Philippines — Remote Ready</span></div>
-                <div class="pmeta-row"><i class="fas fa-envelope"></i><a href="mailto:ericjohnbatino0821@gmail.com">ericjohnbatino0821@gmail.com</a></div>
-                <div class="pmeta-row"><i class="fas fa-phone"></i><span>+63 938 314 7280</span></div>
-                <div class="pmeta-row"><i class="fas fa-globe"></i><a href="https://eric-dev.vercel.app" target="_blank" rel="noopener">eric-dev.vercel.app</a></div>
-                <div class="pmeta-row"><i class="fas fa-images"></i><a href="https://tinyurl.com/3y8m6ytp" target="_blank" rel="noopener">Design Samples</a></div>
-              </div>
-              <div class="pstats">
-                <div class="pstat"><strong>3+</strong><small>Years Exp.</small></div>
-                <div class="pstat"><strong>2</strong><small>IT Roles</small></div>
-                <div class="pstat"><strong>100%</strong><small>Remote-Ready</small></div>
-                <div class="pstat"><strong>PH</strong><small>Based</small></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Text -->
-          <div class="about-text">
-            <p class="label reveal">Who I Am</p>
-            <h2 class="h2 reveal d1">Dependable support,<br/><em>every single day</em></h2>
-            <p class="reveal d2">
-              I'm a <strong>Virtual Assistant and IT Support Specialist</strong> with over three years of hands-on experience keeping businesses and institutions running efficiently. My background spans healthcare IT, university systems, and digital administration.
-            </p>
-            <p class="reveal d3">
-              I understand what it means to be <strong>the person who keeps things together</strong> — answering emails before they pile up, keeping data accurate, making sure systems stay online, and handling the day-to-day tasks that free up your time for bigger decisions.
-            </p>
-            <p class="reveal d4">
-              Whether you need inbox management, e-commerce admin, data entry, or IT troubleshooting — I show up prepared, communicative, and reliable.
-            </p>
-            <div class="vprops reveal d5">
-              <div class="vp">
-                <div class="vpicon"><i class="fas fa-clock"></i></div>
-                <div class="vptext"><strong>Responsive &amp; Reliable</strong><span>Clear updates and consistent communication — no guessing required</span></div>
-              </div>
-              <div class="vp">
-                <div class="vpicon"><i class="fas fa-lock"></i></div>
-                <div class="vptext"><strong>Detail-Oriented &amp; Discreet</strong><span>Accurate work with full respect for your data and privacy</span></div>
-              </div>
-              <div class="vp">
-                <div class="vpicon"><i class="fas fa-bolt"></i></div>
-                <div class="vptext"><strong>Tech-Savvy VA</strong><span>IT background means I adapt fast to any tool or platform you use</span></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-<section id="help">
-  <div class="container">
-    <p class="label">How I Help</p>
-    <h2 class="h2">
-      Support that keeps your business moving
-    </h2>
-
-    <div class="services-grid">
-
-      <div class="svc">
-        <h3>Save Time</h3>
-        <p>
-          I handle repetitive admin tasks, inbox management,
-          scheduling, and organization so you can focus on growth.
-        </p>
-      </div>
-
-      <div class="svc">
-        <h3>Reduce Technical Problems</h3>
-        <p>
-          With an IT background, I troubleshoot issues quickly
-          without needing constant supervision.
-        </p>
-      </div>
-
-      <div class="svc">
-        <h3>Improve Daily Operations</h3>
-        <p>
-          From Shopify updates to spreadsheets and documentation,
-          I help keep workflows organized and efficient.
-        </p>
-      </div>
-
-    </div>
+  <div class="photo">
+    <img src="tabdp.jpg" alt="Eric John Batino, IT Support Specialist" />
+    <div class="chip c1"><svg class="ill"><use href="#desk"/></svg>Windows Support</div>
+    <div class="chip c2"><svg class="ill"><use href="#net"/></svg>Network &amp; Wi-Fi</div>
+    <div class="chip c3"><svg class="ill"><use href="#remote"/></svg>Remote Support</div>
   </div>
-</section>
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="container">
-        <p class="label reveal">What I Offer</p>
-        <h2 class="h2 reveal d1">Services <em>&amp; Expertise</em></h2>
-        <p class="lead reveal d2">End-to-end remote support covering IT, administration, e-commerce, and beyond.</p>
+</div></div></section>
 
-        <div class="services-grid">
+<section id="about" class="alt"><div class="c"><div class="ag">
+  <div class="pc">
+    <img src="tabdp.jpg" alt="Eric John Batino" />
+    <h3>Eric John Batino</h3><p class="r">IT Support Specialist</p>
+    <div class="pm">
+      <span>Tagum City, Philippines · Remote ready</span>
+      <a href="mailto:ericjohnbatino0821@gmail.com">ericjohnbatino0821@gmail.com</a>
+      <span>+63 9565795382</span>
+      <a href="https://eric-dev.vercel.app">eric-dev.vercel.app</a>
+    </div>
+    <div class="st"><div><b>2+</b><small>Years in IT support</small></div><div><b>2</b><small>IT roles</small></div><div><b>BSIT</b><small>Info. Security</small></div><div><b>Remote</b><small>Ready</small></div></div>
+  </div>
+  <div class="at">
+    <p class="lbl">Who I Am</p>
+    <h2>Dependable support, <em>every day</em></h2>
+    <p>I'm an <strong>IT Support Specialist</strong> with about two years of experience in help desk, desktop, and network support. I have supported staff in a <strong>hospital</strong> and a <strong>university</strong>, handling Windows, printers, Wi-Fi, user accounts, and system maintenance.</p>
+    <p>I hold a BS in Information Technology (Major in Information Security). I document each issue and fix so problems are easier to track and prevent, and I explain solutions clearly to non-technical users.</p>
+    <div class="vp"><svg class="ill"><use href="#hosp"/></svg><div><strong>Healthcare IT experience</strong><span>Supported critical hospital systems where downtime affects daily operations</span></div></div>
+    <div class="vp"><svg class="ill"><use href="#ticket"/></svg><div><strong>Clear documentation</strong><span>Issues, fixes, and maintenance recorded in a ticketing system</span></div></div>
+    <div class="vp"><svg class="ill"><use href="#remote"/></svg><div><strong>Remote support</strong><span>Comfortable troubleshooting with AnyDesk and TeamViewer</span></div></div>
+  </div>
+</div></div></section>
 
-          <div class="svc reveal d1">
-            <div class="gc"></div>
-            <div class="svc-icon">🖥️</div>
-            <h3>IT Technical Support</h3>
-            <p>Diagnosing and resolving hardware, software, and network issues remotely. I keep your systems stable, your team unblocked, and operations running without interruption.</p>
-            <div class="stags">
-              <span class="stag">Troubleshooting</span><span class="stag">Network Issues</span>
-              <span class="stag">Remote Support</span><span class="stag">System Maintenance</span>
-            </div>
-          </div>
+<section id="services"><div class="c">
+  <p class="lbl">What I Offer</p><h2>IT Support <em>Services</em></h2>
+  <p class="lead">Practical help desk and network support, based on the work I have done.</p>
+  <div class="gr">
+    <div class="card"><div class="art"><svg class="ill"><use href="#desk"/></svg></div><h3>Windows &amp; Desktop Support</h3><p>Installing, configuring, and troubleshooting Windows and business applications, plus workstation deployment and preventive maintenance.</p><div class="tags"><span>Windows</span><span>Troubleshooting</span><span>Workstation Setup</span></div></div>
+    <div class="card"><div class="art"><svg class="ill"><use href="#print"/></svg></div><h3>Printers &amp; Peripherals</h3><p>Setting up, diagnosing, and repairing printers and other IT equipment so they stay operational.</p><div class="tags"><span>Printer Setup</span><span>Repairs</span><span>Peripherals</span></div></div>
+    <div class="card"><div class="art"><svg class="ill"><use href="#net"/></svg></div><h3>Network &amp; Wi-Fi</h3><p>Deploying and troubleshooting wireless access points, and helping with VLAN, DHCP, and TCP/IP configuration.</p><div class="tags"><span>Wi-Fi</span><span>VLAN</span><span>DHCP</span><span>TCP/IP</span></div></div>
+    <div class="card"><div class="art"><svg class="ill"><use href="#user"/></svg></div><h3>User Accounts &amp; Access</h3><p>Setting up accounts, managing access and permissions, and supporting two-factor authentication.</p><div class="tags"><span>Active Directory</span><span>Microsoft 365</span><span>Google Workspace</span></div></div>
+    <div class="card"><div class="art"><svg class="ill"><use href="#remote"/></svg></div><h3>Remote Support</h3><p>Resolving issues remotely so users are back to work quickly, with clear explanations of what was fixed.</p><div class="tags"><span>AnyDesk</span><span>TeamViewer</span></div></div>
+    <div class="card"><div class="art"><svg class="ill"><use href="#ticket"/></svg></div><h3>Ticketing &amp; Documentation</h3><p>Logging issues, actions, and resolutions, and writing SOPs so recurring problems are easier to prevent.</p><div class="tags"><span>OS Ticket</span><span>SOPs</span><span>Documentation</span></div></div>
+  </div>
+</div></section>
 
-          <div class="svc reveal d2">
-            <div class="gc"></div>
-            <div class="svc-icon">📋</div>
-            <h3>Virtual Assistant &amp; Admin Tasks</h3>
-            <p>Calendar management, scheduling, document preparation, file organization, and general administrative support — handled professionally so you can focus on what matters.</p>
-            <div class="stags">
-              <span class="stag">Scheduling</span><span class="stag">Document Prep</span>
-              <span class="stag">File Management</span><span class="stag">Google Workspace</span>
-            </div>
-          </div>
+<section id="experience" class="alt"><div class="c">
+  <p class="lbl">Work History</p><h2>Professional <em>Experience</em></h2>
+  <div class="gr">
+    <div class="card"><div class="art"><svg class="ill"><use href="#univ"/></svg></div><span class="per">2025 – 2026</span><h3>IT Technical Support</h3><p class="co">University of Southeastern Philippines</p>
+      <ul><li>First-level support for hardware, software, network, and printer issues</li><li>Installed and maintained Windows, business applications, and peripherals</li><li>Deployed and troubleshot wireless access points and Wi-Fi</li><li>Assisted with VLAN, DHCP, and TCP/IP configuration</li><li>Supported user accounts, virtual machines, updates, and backups</li></ul></div>
+    <div class="card"><div class="art"><svg class="ill"><use href="#hosp"/></svg></div><span class="per">2024 – 2025</span><h3>IT Officer-in-Charge, MIS Department</h3><p class="co">Tagum Global Medical Center Inc.</p>
+      <ul><li>Managed IT infrastructure, servers, and digital record systems</li><li>Administered user accounts, access, and security permissions</li><li>Monitored system performance, ran backups, and supported data integrity</li><li>Supported end users and coordinated with other departments</li></ul></div>
+    <div class="card"><div class="art"><svg class="ill"><use href="#code"/></svg></div><span class="per">2023 – 2025</span><h3>Web Developer (Project-Based)</h3><p class="co">Independent / Academic Projects</p>
+      <ul><li>Vehicle scheduling system</li><li>Car booking platform</li><li>Equipment reservation system</li><li>Android/IoT pest monitoring app</li></ul></div>
+  </div>
+</div></section>
 
-          <div class="svc reveal d3">
-            <div class="gc"></div>
-            <div class="svc-icon">📊</div>
-            <h3>Data Entry &amp; Management</h3>
-            <p>Accurate and fast data entry, database updates, spreadsheet management, and data cleaning. Records that are organized, consistent, and always up to date.</p>
-            <div class="stags">
-              <span class="stag">Spreadsheets</span><span class="stag">Data Cleaning</span>
-              <span class="stag">Google Sheets</span><span class="stag">Excel</span>
-            </div>
-          </div>
+<section id="skills"><div class="c">
+  <p class="lbl">Skills</p><h2>Technical <em>Skills</em></h2>
+  <div class="tg">
+    <div class="card"><h4>Help Desk &amp; Desktop</h4><ul><li>Windows troubleshooting</li><li>Workstation deployment</li><li>Printer &amp; peripheral setup</li><li>Preventive maintenance</li></ul></div>
+    <div class="card"><h4>Remote Support</h4><ul><li>AnyDesk</li><li>TeamViewer</li></ul></div>
+    <div class="card"><h4>Networking</h4><ul><li>TCP/IP, DHCP, VLAN</li><li>Wi-Fi &amp; access points</li><li>Network troubleshooting</li><li>Firewall fundamentals</li></ul></div>
+    <div class="card"><h4>Accounts &amp; Access</h4><ul><li>Active Directory</li><li>Microsoft 365</li><li>Google Workspace</li><li>Two-factor authentication support</li></ul></div>
+    <div class="card"><h4>Systems &amp; Security</h4><ul><li>Backups &amp; updates</li><li>System monitoring</li><li>Antivirus management</li><li>Virtual machines</li></ul></div>
+    <div class="card"><h4>Ticketing &amp; Docs</h4><ul><li>OS Ticket</li><li>Technical documentation</li><li>SOP creation</li></ul></div>
+    <div class="card"><h4>Development</h4><ul><li>PHP, JavaScript, C#</li><li>MySQL</li><li>Git / GitHub</li></ul></div>
+    <div class="card"><h4>Education</h4><ul><li>BS Information Technology, Major in Information Security</li><li>University of Southeastern Philippines, 2019 – 2024</li></ul></div>
+  </div>
+</div></section>
 
-          <div class="svc reveal d1">
-            <div class="gc"></div>
-            <div class="svc-icon">📬</div>
-            <h3>Email Management</h3>
-            <p>Inbox triage, drafting professional responses, setting up filters and labels, and maintaining clear communication threads — your inbox stays under control, always.</p>
-            <div class="stags">
-              <span class="stag">Inbox Zero</span><span class="stag">Gmail / Outlook</span>
-              <span class="stag">Templates</span><span class="stag">Follow-Ups</span>
-            </div>
-          </div>
+<section id="contact" class="alt"><div class="c"><div class="cta">
+  <div>
+    <p class="lbl">Let's Connect</p>
+    <h3>Looking for reliable <em>IT support?</em></h3>
+    <p>I'm open to full-time remote help desk and IT support roles. Send me a message and I'll reply as soon as I can.</p>
+    <a class="btn fill" href="mailto:ericjohnbatino0821@gmail.com?subject=IT%20Support%20Inquiry">Email Me</a>
+  </div>
+  <div class="ci">
+    <a href="mailto:ericjohnbatino0821@gmail.com"><svg class="ill"><use href="#mail"/></svg><span><b>Email</b>ericjohnbatino0821@gmail.com</span></a>
+    <a href="tel:+639565795382"><svg class="ill"><use href="#phone"/></svg><span><b>Phone</b>+63 9565795382</span></a>
+    <div><svg class="ill"><use href="#pin"/></svg><span><b>Location</b>Tagum City, Philippines · Remote</span></div>
+    <a href="https://www.linkedin.com/in/ercjhnbtno" target="_blank" rel="noopener"><svg class="ill"><use href="#globe"/></svg><span><b>LinkedIn</b>linkedin.com/in/ercjhnbtno</span></a>
+  </div>
+</div></div></section>
+</main>
 
-          <div class="svc reveal d2">
-            <div class="gc"></div>
-            <div class="svc-icon">🛍️</div>
-            <h3>E-Commerce Support</h3>
-            <p>Product listing creation and updates, order tracking, customer message handling, and basic store administration on Shopify and similar platforms.</p>
-            <div class="stags">
-              <span class="stag">Shopify</span><span class="stag">Product Listings</span>
-              <span class="stag">Order Management</span><span class="stag">Customer Support</span>
-            </div>
-          </div>
-
-          <div class="svc reveal d3">
-            <div class="gc"></div>
-            <div class="svc-icon">📱</div>
-            <h3>Social Media &amp; Content Admin</h3>
-            <p>Scheduling posts, creating simple graphics in Canva, managing business pages on Meta, and keeping your brand's online presence consistent and active.</p>
-            <div class="stags">
-              <span class="stag">Canva</span><span class="stag">Meta Business Suite</span>
-              <span class="stag">Content Scheduling</span><span class="stag">CapCut</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="container">
-        <p class="label reveal">Work History</p>
-        <h2 class="h2 reveal d1">Professional <em>Experience</em></h2>
-        <p class="lead reveal d2">Real-world IT and administrative roles in demanding, fast-paced environments.</p>
-
-        <div class="exp-grid">
-
-          <div class="exp-card reveal d1">
-            <span class="exp-period">2025 – 2026</span>
-            <h3>IT Technical Support</h3>
-            <p class="exp-co">University of Southeastern Philippines</p>
-            <ul class="exp-list">
-              <li>Provided end-user technical support for hardware, software, and network concerns across campus</li>
-              <li>Maintained IT infrastructure and ensured system uptime during academic operations</li>
-              <li>Logged and tracked support tickets, coordinating resolutions with minimal downtime</li>
-            </ul>
-          </div>
-
-          <div class="exp-card reveal d2">
-            <span class="exp-period">2024 – 2025</span>
-            <h3>Officer-in-Charge, MIS</h3>
-            <p class="exp-co">Tagum Global Medical Center</p>
-            <ul class="exp-list">
-                <li>Provided daily IT support for hospital staff and maintained critical systems for uninterrupted operations</li>
-
-                <li>Reduced workflow disruptions by troubleshooting hardware, software, and network issues quickly</li>
-
-                <li>Managed digital records and technical concerns in a fast-paced healthcare environment</li>
-            </ul>
-          </div>
-
-          <div class="exp-card reveal d1">
-            <span class="exp-period">2023 – 2025</span>
-            <h3>Project Coordinator &amp; Admin Support</h3>
-            <p class="exp-co">Academic Projects / Freelance</p>
-            <ul class="exp-list">
-              <li>Coordinated documentation, task tracking, and deliverables across multiple team projects</li>
-              <li>Managed communication between client throughout the project lifecycle</li>
-              <li>Handled data entry, record management, and progress reporting</li>
-            </ul>
-          </div>
-
-          <div class="exp-card reveal d2">
-            <span class="exp-period">Ongoing</span>
-            <h3>Digital Admin &amp; Content (Self-Directed)</h3>
-            <p class="exp-co">Independent</p>
-            <ul class="exp-list">
-              <li>Managed content calendars and social media posts via Canva and Meta Business Suite</li>
-              <li>Handled scheduling, email drafting, and online research tasks</li>
-              <li>Maintained spreadsheets and databases for tracking and reporting</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- TOOLS -->
-    <section id="tools">
-      <div class="container">
-        <p class="label reveal">Tools & Platforms</p>
-        <h2 class="h2 reveal d1">Tools I <em>Work With</em></h2>
-        <p class="lead reveal d2" style="margin-bottom:0">Familiar with the platforms most businesses already use — zero onboarding friction.</p>
-
-        <div class="tools-layout">
-
-          <div class="tgrp reveal d1">
-            <p class="tgrp-lbl">Communication</p>
-            <div class="titem"><i class="fas fa-check-circle"></i> Gmail &amp; Outlook</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Slack</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Zoom / Google Meet</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Microsoft Teams</div>
-          </div>
-
-          <div class="tgrp reveal d2">
-            <p class="tgrp-lbl">Admin &amp; Productivity</p>
-            <div class="titem"><i class="fas fa-check-circle"></i> Google Workspace</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Microsoft Office</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Google Sheets / Excel</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Google Drive</div>
-          </div>
-
-          <div class="tgrp reveal d3">
-            <p class="tgrp-lbl">E-Commerce</p>
-            <div class="titem"><i class="fas fa-check-circle"></i> Shopify</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> WordPress</div>
-           
-          </div>
-
-          <div class="tgrp reveal d4">
-            <p class="tgrp-lbl">Project Management</p>
-            <div class="titem"><i class="fas fa-check-circle"></i> ClickUp</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Monday.com</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Trello</div>
-           
-          </div>
-
-          <div class="tgrp reveal d1">
-            <p class="tgrp-lbl">Social &amp; Design</p>
-            <div class="titem"><i class="fas fa-check-circle"></i> Canva</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> CapCut</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Meta Business Suite</div>
-          </div>
-
-          <div class="tgrp reveal d2">
-            <p class="tgrp-lbl">IT Support</p>
-            <div class="titem"><i class="fas fa-check-circle"></i> TeamViewer / AnyDesk</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Windows OS</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Network Diagnostics</div>
-            <div class="titem"><i class="fas fa-check-circle"></i> Hardware Troubleshoot</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY ME -->
-    <section id="why">
-      <div class="container">
-        <p class="label reveal" style="justify-content:center;text-align:center">Why Work With Me</p>
-        <h2 class="h2 reveal d1" style="text-align:center">What sets me <em>apart</em></h2>
-        <div class="why-grid">
-          <div class="why-card reveal d1">
-            <div class="why-emoji">⚡</div>
-            <h3>IT Background = Faster Problem Solving</h3>
-            <p>Most VAs rely on someone else for technical issues. I handle them myself — troubleshooting tools, platform errors, and system hiccups without breaking your workflow.</p>
-          </div>
-          <div class="why-card reveal d2">
-            <div class="why-emoji">🎯</div>
-            <h3>Detail-Oriented by Training</h3>
-            <p>Years working in healthcare IT and university systems taught me precision. Data entry, record-keeping, and documentation are done right the first time.</p>
-          </div>
-          <div class="why-card reveal d3">
-            <div class="why-emoji">🌏</div>
-            <h3>Philippines-Based, Global-Ready</h3>
-            <p>Excellent English communication, flexible hours to match your timezone, and a reliable setup. Remote collaboration is my natural environment.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <p class="label reveal">Let's Connect</p>
-        <h2 class="h2 reveal d1">Ready to get <em>started?</em></h2>
-
-        <div class="contact-wrap">
-
-          <div class="cl reveal">
-            <h3>Let's make your<br/><em>work easier.</em></h3>
-            <p>Whether you need a reliable VA for ongoing tasks, IT support for your remote team, or someone to manage your e-commerce store — I'm ready to help starting today.</p>
-
-            <div class="cinfo">
-              <div class="cinfo-i"><i class="fas fa-envelope"></i></div>
-              <div class="cinfo-t"><strong>Email</strong><a href="mailto:ericjohnbatino0821@gmail.com">ericjohnbatino0821@gmail.com</a></div>
-            </div>
-            <div class="cinfo">
-              <div class="cinfo-i"><i class="fas fa-phone"></i></div>
-              <div class="cinfo-t"><strong>Phone / WhatsApp</strong><span>+63 938 314 7280</span></div>
-            </div>
-            <div class="cinfo">
-              <div class="cinfo-i"><i class="fas fa-map-marker-alt"></i></div>
-              <div class="cinfo-t"><strong>Location</strong><span>Philippines · Remote Available</span></div>
-            </div>
-            <div class="cinfo">
-              <div class="cinfo-i"><i class="fas fa-globe"></i></div>
-              <div class="cinfo-t"><strong>Portfolio</strong><a href="https://eric-dev.vercel.app" target="_blank" rel="noopener">eric-dev.vercel.app</a></div>
-            </div>
-            <div class="cinfo">
-              <div class="cinfo-i"><i class="fas fa-images"></i></div>
-              <div class="cinfo-t"><strong>Design Samples</strong><a href="https://tinyurl.com/3y8m6ytp" target="_blank" rel="noopener">tinyurl.com/3y8m6ytp</a></div>
-            </div>
-
-            <div class="csocs">
-              <a href="mailto:ericjohnbatino0821@gmail.com" class="soc" aria-label="Email"><i class="fas fa-envelope"></i></a>
-              <a href="https://eric-dev.vercel.app" target="_blank" rel="noopener" class="soc" aria-label="Portfolio"><i class="fas fa-globe"></i></a>
-              <a href="https://tinyurl.com/3y8m6ytp" target="_blank" rel="noopener" class="soc" aria-label="Samples"><i class="fas fa-images"></i></a>
-              <a href="tel:+639383147280" class="soc" aria-label="Call"><i class="fas fa-phone"></i></a>
-            </div>
-          </div>
-
-          <!-- Form -->
-          <form id="contact-form" class="cform reveal d2" action="https://formsubmit.com/ericjohnbatino0821@gmail.com">
-            <div class="frow2">
-              <div class="fg">
-                <label for="fn">Your Name</label>
-                <input type="text" id="fn" placeholder="Jane Smith" />
-              </div>
-              <div class="fg">
-                <label for="fe">Your Email</label>
-                <input type="email" id="fe" placeholder="jane@company.com" />
-              </div>
-            </div>
-            <div class="fg">
-              <label for="fs">Service Needed</label>
-              <select id="fs">
-                <option value="">— Select a service —</option>
-                <option>IT Technical Support</option>
-                <option>Virtual Assistant / Admin Tasks</option>
-                <option>Data Entry &amp; Management</option>
-                <option>Email Management</option>
-                <option>E-Commerce Support (Shopify)</option>
-                <option>Social Media Administration</option>
-                <option>Multiple / General Inquiry</option>
-              </select>
-            </div>
-            <div class="fg">
-              <label for="fm">Tell me about the role or task</label>
-              <textarea id="fm" placeholder="Describe what you need help with, hours per week, tools you use…"></textarea>
-            </div>
-            <button class="btn-submit" onclick="sendMsg()"><i class="fas fa-paper-plane"></i> &nbsp;Send Message</button>
-            <p id="form-status"></p>
-
-            <!-- Spam protection -->
-                    <input type="text" name="_honey" style="display:none">
-                    <input type="hidden" name="_captcha" value="true">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_subject" value="New message from your portfolio site">
-                    <input type="hidden" name="_next" value="https://eric-dev.vercel.app/thank-you.html">
-                    <input type="hidden" name="_replyto" value="">
-          </form>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>Designed &amp; crafted by <span>Eric John Batino</span> &nbsp;·&nbsp; Philippines &copy; 2025 &nbsp;·&nbsp;
-    <a href="https://eric-dev.vercel.app" style="color:var(--accent2)" target="_blank" rel="noopener">eric-dev.vercel.app</a></p>
-  </footer>
-
-  <button id="scroll-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <script>
-    // Mobile nav
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('mobile-nav').classList.toggle('open');
-    });
-    function closeMob() { document.getElementById('mobile-nav').classList.remove('open'); }
-
-    // Header + scroll-top
-    window.addEventListener('scroll', () => {
-      document.getElementById('header').classList.toggle('scrolled', scrollY > 50);
-      document.getElementById('scroll-top').classList.toggle('show', scrollY > 400);
-    });
-
-    // Active nav
-    const allSecs = document.querySelectorAll('section[id]');
-    const allAs   = document.querySelectorAll('nav ul li a');
-    allSecs.forEach(s => {
-      new IntersectionObserver(([e]) => {
-        if (e.isIntersecting) {
-          allAs.forEach(a => a.classList.remove('active'));
-          const a = document.querySelector(`nav ul li a[href="#${e.target.id}"]`);
-          if (a) a.classList.add('active');
-        }
-      }, { threshold: 0.4 }).observe(s);
-    });
-
-    // Scroll reveal
-    (function() {
-      const ro = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
-      }, { threshold: 0.08 });
-      document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-    })();
-
-    // Typing effect
-    const roles = ['IT Support Specialist','Virtual Assistant','Email Manager','Data Entry Expert','E-Commerce Assistant'];
-    let ri=0, ci=0, del=false;
-    const te = document.getElementById('typed');
-    function tick() {
-      const r = roles[ri];
-      te.textContent = del ? r.slice(0,--ci) : r.slice(0,++ci);
-      if (!del && ci===r.length) { del=true; setTimeout(tick,2000); return; }
-      if (del && ci===0)         { del=false; ri=(ri+1)%roles.length; }
-      setTimeout(tick, del?48:85);
-    }
-    tick();
-
-    // Form
-    function sendMsg() {
-      const name = document.getElementById('fn').value.trim();
-      const email= document.getElementById('fe').value.trim();
-      const svc  = document.getElementById('fs').value;
-      const msg  = document.getElementById('fm').value.trim();
-      const st   = document.getElementById('form-status');
-      if (!name||!email||!msg) { st.textContent='⚠️ Please fill in name, email, and message.'; st.style.color='#f87171'; return; }
-      const subject = svc ? `VA/IT Inquiry — ${svc}` : 'VA/IT Support Inquiry';
-      const body    = `Hi Eric,\n\nMy name is ${name}.\nService: ${svc||'General Inquiry'}\n\n${msg}\n\nContact: ${email}`;
-      window.location.href = `mailto:ericjohnbatino0821@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      st.textContent='✅ Opening your email client…'; st.style.color='#34d399';
-    }
-  </script>
+<footer><p>&copy; 2026 <span>Eric John Batino</span> · IT Support Specialist · Philippines</p></footer>
 </body>
 </html>
