@@ -72,6 +72,15 @@ h1 span{background:linear-gradient(100deg,var(--a),var(--a2) 60%);-webkit-backgr
 .tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:44px}
 .tg .card{padding:20px}.tg h4{font-size:.67rem;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:10px}
 .tg li{font-size:.82rem;color:var(--t2);padding:3px 0 3px 18px;position:relative}.tg li::before{content:'✓';position:absolute;left:0;color:var(--a2);font-size:.75rem}
+/* project mockups */
+.pj .card{padding:18px 20px 24px}
+.shot{border:1px solid var(--bd);border-radius:14px;overflow:hidden;background:#0a1222;margin-bottom:18px}
+.shot .bar{display:flex;gap:5px;padding:8px 12px;background:rgba(255,255,255,.05);border-bottom:1px solid var(--bd)}
+.shot .bar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2)}
+.shot svg{width:100%;height:auto;display:block}
+.k1{fill:rgba(255,255,255,.06)}.k2{fill:rgba(255,255,255,.14)}.ka{fill:var(--a)}.ka2{fill:var(--a2)}.kg{fill:var(--g)}.ky{fill:#fbbf24}.kr{fill:#f87171}.kw{fill:#fff}
+.ks{stroke:var(--a2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* contact */
 .cta{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:44px;align-items:center}
 .cta h3{font-size:1.6rem;color:#fff;line-height:1.25;margin-bottom:12px}.cta p{color:var(--t2);font-size:.9rem;margin-bottom:22px}
 .ci{display:grid;gap:12px}.ci a,.ci div{display:flex;align-items:center;gap:14px;background:var(--s);border:1px solid var(--bd);border-radius:16px;padding:14px 18px;font-size:.86rem;color:var(--t2);word-break:break-word}
@@ -101,7 +110,7 @@ footer{border-top:1px solid var(--bd);padding:24px 20px;text-align:center;font-s
 
 <header id="h">
   <a href="#hero" class="logo"><i></i>Eric Batino</a>
-  <nav aria-label="Primary"><a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact" class="hire">Hire Me</a></nav>
+  <nav aria-label="Primary"><a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact" class="hire">Hire Me</a></nav>
 </header>
 
 <main>
@@ -172,7 +181,82 @@ footer{border-top:1px solid var(--bd);padding:24px 20px;text-align:center;font-s
   </div>
 </div></section>
 
-<section id="skills"><div class="c">
+<section id="projects"><div class="c">
+  <p class="lbl">Web Development</p><h2>Project <em>Samples</em></h2>
+  <p class="lead">Systems I built for offices and school projects. Previews are illustrations of each project's main screen.</p>
+  <div class="gr pj">
+
+    <div class="card">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i></div>
+      <svg viewBox="0 0 320 200" role="img" aria-label="Vehicle scheduling calendar preview">
+        <rect class="k1" x="12" y="12" width="296" height="22" rx="6"/><rect class="ka" x="20" y="19" width="60" height="8" rx="4"/><rect class="k2" x="240" y="18" width="60" height="10" rx="5"/>
+        <g class="k2"><rect x="12" y="44" width="56" height="12" rx="3"/><rect x="74" y="44" width="56" height="12" rx="3"/><rect x="136" y="44" width="56" height="12" rx="3"/><rect x="198" y="44" width="56" height="12" rx="3"/><rect x="260" y="44" width="48" height="12" rx="3"/></g>
+        <g class="k1"><rect x="12" y="62" width="56" height="126" rx="4"/><rect x="74" y="62" width="56" height="126" rx="4"/><rect x="136" y="62" width="56" height="126" rx="4"/><rect x="198" y="62" width="56" height="126" rx="4"/><rect x="260" y="62" width="48" height="126" rx="4"/></g>
+        <rect class="ka" x="16" y="70" width="48" height="30" rx="4"/><rect class="kg" x="78" y="96" width="48" height="40" rx="4"/><rect class="ky" x="140" y="70" width="48" height="24" rx="4"/><rect class="ka2" x="202" y="110" width="48" height="52" rx="4"/><rect class="ka" x="264" y="80" width="40" height="34" rx="4"/><rect class="kg" x="16" y="128" width="48" height="36" rx="4"/><rect class="ky" x="140" y="134" width="48" height="30" rx="4"/>
+      </svg></div>
+      <h3>Vehicle Scheduling System</h3>
+      <p>Web calendar where staff request vehicles and drivers, and admins approve trips without double-booking.</p>
+      <div class="tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
+    </div>
+
+    <div class="card">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i></div>
+      <svg viewBox="0 0 320 200" role="img" aria-label="Car booking page preview">
+        <rect class="k1" x="12" y="12" width="150" height="176" rx="8"/>
+        <path class="ks" d="M34 110h106l-10-26a10 10 0 0 0-9-6H56a10 10 0 0 0-9 6z M30 110v18h114v-18"/>
+        <circle class="ka" cx="56" cy="130" r="9"/><circle class="ka" cx="118" cy="130" r="9"/>
+        <rect class="k2" x="26" y="152" width="80" height="8" rx="4"/><rect class="k2" x="26" y="168" width="50" height="6" rx="3"/>
+        <rect class="k2" x="176" y="16" width="100" height="10" rx="5"/>
+        <rect class="k1" x="176" y="38" width="132" height="24" rx="6"/><rect class="k2" x="184" y="47" width="50" height="6" rx="3"/>
+        <rect class="k1" x="176" y="72" width="132" height="24" rx="6"/><rect class="k2" x="184" y="81" width="64" height="6" rx="3"/>
+        <rect class="k1" x="176" y="106" width="62" height="24" rx="6"/><rect class="k1" x="246" y="106" width="62" height="24" rx="6"/>
+        <rect class="ka" x="176" y="150" width="132" height="30" rx="15"/><rect class="kw" x="218" y="162" width="48" height="7" rx="3.5"/>
+      </svg></div>
+      <h3>Car Booking Platform</h3>
+      <p>Browse available cars, pick dates and times, and confirm a booking in a few steps.</p>
+      <div class="tags"><span>PHP</span><span>MySQL</span><span>Booking Flow</span></div>
+    </div>
+
+    <div class="card">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i></div>
+      <svg viewBox="0 0 320 200" role="img" aria-label="Equipment reservation table preview">
+        <rect class="k1" x="12" y="12" width="296" height="22" rx="6"/><rect class="ka" x="20" y="19" width="70" height="8" rx="4"/><rect class="k2" x="236" y="17" width="64" height="12" rx="6"/>
+        <g class="k2"><rect x="16" y="46" width="70" height="7" rx="3"/><rect x="150" y="46" width="50" height="7" rx="3"/><rect x="250" y="46" width="44" height="7" rx="3"/></g>
+        <g class="k1"><rect x="12" y="60" width="296" height="26" rx="5"/><rect x="12" y="92" width="296" height="26" rx="5"/><rect x="12" y="124" width="296" height="26" rx="5"/><rect x="12" y="156" width="296" height="26" rx="5"/></g>
+        <g class="k2"><rect x="20" y="70" width="84" height="6" rx="3"/><rect x="20" y="102" width="70" height="6" rx="3"/><rect x="20" y="134" width="92" height="6" rx="3"/><rect x="20" y="166" width="64" height="6" rx="3"/><rect x="150" y="70" width="50" height="6" rx="3"/><rect x="150" y="102" width="60" height="6" rx="3"/><rect x="150" y="134" width="44" height="6" rx="3"/><rect x="150" y="166" width="56" height="6" rx="3"/></g>
+        <rect class="kg" x="246" y="66" width="52" height="14" rx="7"/><rect class="ky" x="246" y="98" width="52" height="14" rx="7"/><rect class="kg" x="246" y="130" width="52" height="14" rx="7"/><rect class="kr" x="246" y="162" width="52" height="14" rx="7"/>
+      </svg></div>
+      <h3>Equipment Reservation System</h3>
+      <p>Request and track school equipment, with clear status for available, reserved, and returned items.</p>
+      <div class="tags"><span>PHP</span><span>MySQL</span><span>Admin Panel</span></div>
+    </div>
+
+    <div class="card">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i></div>
+      <svg viewBox="0 0 320 200" role="img" aria-label="Pest monitoring mobile app preview">
+        <rect class="k1" x="24" y="10" width="104" height="182" rx="14"/><rect fill="#0a1222" x="30" y="20" width="92" height="162" rx="8"/>
+        <rect class="k2" x="44" y="28" width="40" height="6" rx="3"/>
+        <rect class="k1" x="38" y="44" width="76" height="52" rx="6"/>
+        <path class="ks" d="M44 88l14-14 12 8 14-22 12 10 14-14"/>
+        <rect class="k1" x="38" y="104" width="36" height="34" rx="6"/><rect class="k1" x="78" y="104" width="36" height="34" rx="6"/>
+        <rect class="kg" x="46" y="112" width="14" height="8" rx="3"/><rect class="kr" x="86" y="112" width="14" height="8" rx="3"/>
+        <rect class="k2" x="46" y="126" width="20" height="5" rx="2"/><rect class="k2" x="86" y="126" width="20" height="5" rx="2"/>
+        <rect class="ka" x="38" y="148" width="76" height="22" rx="11"/>
+        <rect class="k1" x="150" y="14" width="158" height="52" rx="8"/><rect class="k2" x="160" y="24" width="60" height="7" rx="3"/><rect class="ka2" x="160" y="42" width="40" height="14" rx="3"/>
+        <rect class="k1" x="150" y="76" width="158" height="52" rx="8"/><rect class="k2" x="160" y="86" width="52" height="7" rx="3"/><rect class="ky" x="160" y="104" width="64" height="14" rx="3"/>
+        <rect class="k1" x="150" y="138" width="158" height="52" rx="8"/><circle class="kg" cx="172" cy="164" r="8"/><rect class="k2" x="190" y="154" width="70" height="7" rx="3"/><rect class="k2" x="190" y="168" width="48" height="6" rx="3"/>
+      </svg></div>
+      <h3>Pest Monitoring App</h3>
+      <p>Android app connected to IoT sensors that shows live readings and alerts when pest activity rises.</p>
+      <div class="tags"><span>Android</span><span>IoT</span><span>Sensors</span></div>
+    </div>
+
+  </div>
+  <!-- Real screenshots: replace any <svg>...</svg> inside .shot with
+       <img src="your-screenshot.png" alt="Project screenshot" loading="lazy" /> -->
+</div></section>
+
+<section id="skills" class="alt"><div class="c">
   <p class="lbl">Skills</p><h2>Technical <em>Skills</em></h2>
   <div class="tg">
     <div class="card"><h4>Help Desk &amp; Desktop</h4><ul><li>Windows troubleshooting</li><li>Workstation deployment</li><li>Printer &amp; peripheral setup</li><li>Preventive maintenance</li></ul></div>
@@ -186,7 +270,7 @@ footer{border-top:1px solid var(--bd);padding:24px 20px;text-align:center;font-s
   </div>
 </div></section>
 
-<section id="contact" class="alt"><div class="c"><div class="cta">
+<section id="contact"><div class="c"><div class="cta">
   <div>
     <p class="lbl">Let's Connect</p>
     <h3>Looking for reliable <em>IT support?</em></h3>
