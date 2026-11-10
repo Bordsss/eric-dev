@@ -80,6 +80,7 @@ h1 span{background:linear-gradient(100deg,var(--a),var(--a2) 60%);-webkit-backgr
 .shot svg{width:100%;height:auto;display:block}
 .shot img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;display:block}
 .shot img+svg{display:none}
+.shot img.portrait{aspect-ratio:16/10;object-fit:contain;background:#0a1222}
 .k1{fill:rgba(255,255,255,.06)}.k2{fill:rgba(255,255,255,.14)}.ka{fill:var(--a)}.ka2{fill:var(--a2)}.kg{fill:var(--g)}.ky{fill:#fbbf24}.kr{fill:#f87171}.kw{fill:#fff}
 .ks{stroke:var(--a2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 /* contact */
@@ -242,7 +243,7 @@ footer{border-top:1px solid var(--bd);padding:24px 20px;text-align:center;font-s
     <div class="card">
       <div class="shot"><div class="bar"><i></i><i></i><i></i></div>
       <!-- EDIT: put your screenshot file name in src below -->
-      <img src="images/rattrap.png.jpg" alt="Pest monitoring app screenshot" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      <img class="portrait" src="images/rattrap.png.jpg" alt="Pest monitoring app screenshot" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
       <svg viewBox="0 0 320 200" role="img" aria-label="Pest monitoring mobile app preview">
         <rect class="k1" x="24" y="10" width="104" height="182" rx="14"/><rect fill="#0a1222" x="30" y="20" width="92" height="162" rx="8"/>
         <rect class="k2" x="44" y="28" width="40" height="6" rx="3"/>
